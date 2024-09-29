@@ -1,0 +1,688 @@
+
+body {
+    padding: 0;
+    margin: 0;
+}
+img {
+    max-width: 100%;
+}
+#navigation_small {
+    display: none;
+}
+#branch_name_small {
+    display: none;
+}
+#branch-name-small-2-rows {
+    display: none;
+}
+.hide_large {
+    display: none;
+}
+
+/*NAVIGATION*/
+
+.navigation_large {
+    width: 100%;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+#main_logo {
+    float: left;
+    margin-left: 2%;
+    width: 100px;
+    height: 60px;
+}
+.navigation {
+    height: 60px;
+    width: 80%;
+    margin-left: 130px;
+    max-width: 85%;
+}
+.navigation_ul {
+    width: 100%;
+    padding-left: 40px;
+    max-width: 90%;
+    margin-top: 0;
+}
+.navigation a {
+    font-size: 18px;
+    font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
+    text-transform: ;
+    text-decoration: none;
+}
+.navigation_ul>li {
+    display: inline-block;
+    margin-top: 13px;
+    margin-right: 25px;
+    margin-left: 0px;
+    font-color: black;
+}
+.navigation_ul>li>a {
+    display: block;
+    height: 40px;
+    padding-top: 10px;
+    max-width: 100%;
+}
+
+/*YOU ARE HERE*/
+
+.you-are-here {
+    height: 24px;
+    padding-top: 2px;
+    padding-left: 10px;
+    background-color: black;
+    color: white;
+}
+.you-are-here a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.no-link {
+    pointer-events: none;
+}
+.you-are-here a:link {
+    color:white; text-decoration:none
+}
+.you-are-here a:visited {
+    color:white; text-decoration:none
+}
+.you-are-here a:hover {
+    color:#B0B0B0; text-decoration:none
+}
+
+/*PAGE CONTENTS*/
+
+#background {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    max-width: 100%;
+    clear: both;
+    font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
+}
+#header-top {
+    margin-top: ;
+    margin-bottom: ;
+}
+.page-contents-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    background-color: #F1F1F3;
+}
+.page-contents-container h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    font-size: 1.5em;
+    padding-left: 5%;
+    padding-right: 4%;
+    border-top: 0.1em solid #C1C1C1;
+}
+.page-contents-container h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    font-size: 1.5em;
+    padding-left: 5%;
+    padding-right: 4%;
+    font-weight: normal;
+    border-top: 0.1em solid #C1C1C1;
+}
+.page-contents-container p {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 100%;
+    font-size: 1em;
+    padding-left: 5%;
+    padding-right: 4%;
+}
+.page-contents-container-3 {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3%;
+    max-width: 100%;
+    background-color: #F1F1F3;
+}
+.page-contents-container-3 h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    font-size: 2.5em;
+    padding-left: 12%;
+    padding-right: 11%;
+}
+.page-contents-container-3 h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    padding-left: 12%;
+    padding-right: 11%;
+    font-size: 2em;
+}
+.page-contents-container-3 p {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 100%;
+    font-size: 1.7em;
+    padding-left: 12%;
+    padding-right: 11%;
+    line-height: 170%;
+}
+.p-top {
+    padding-top: 2%;
+}
+.p-middle {
+    padding-top: 2%;
+}
+.p-bottom {
+    padding-top: 2%;
+    padding-bottom: 7%;
+}
+.p-top-bottom {
+    padding-top: 2%;
+    padding-bottom: 7%;
+    border-bottom: 0.1em solid #C1C1C1;
+}
+
+/*SIEM REAP*/
+
+#siem-reap-rooms-image-1 {
+    width: 100%;
+    background-image: url("../images/siem-reap-rooms-top.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+#siem-reap-rooms-image-2 {
+    width: 100%;
+    background-image: url("../images/siem-reap-rooms-dorms.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+#siem-reap-rooms-image-3 {
+    width: 100%;
+    background-image: url("../images/siem-reap-rooms-dorm-bed.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+#siem-reap-rooms-image-4 {
+    width: 100%;
+    background-image: url("../images/siem-reap-rooms-locker.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+#siem-reap-rooms-image-private-rooms {
+    width: 100%;
+    background-image: url("../images/siem-reap-rooms-private.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+#siem-reap-facilities-movie {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-movie.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-facilities-bar {
+    width: 100%;
+    background-image: url("../images/onederzsr-facilities.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-facilities-bathroom {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-bathroom.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-facilities-tour {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-tour.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-facilities-roof-top {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-roof-top.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-facilities-restaurant {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-restaurant.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-facilities-cctv {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-cctv.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-facilities-business-center {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-business-center.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-tour-sunrise {
+    width: 75%;
+    background-image: url("../images/siem-reap-tour-sunrise-angkor.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+#siem-reap-tour-sunset {
+    width: 75%;
+    background-image: url("../images/siem-reap-tour-bayon.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+#siem-reap-tour-small-circuit {
+    width: 75%;
+    background-image: url("../images/siem-reap-tour-taprohm.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+#siem-reap-tour-grand-circuit {
+    width: 75%;
+    background-image: url("../images/siem-reap-tour-grand-circuit.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+#siem-reap-tour-bengmealea {
+    width: 75%;
+    background-image: url("../images/siem-reap-tour-bengmealea.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+#siem-reap-tour-banteaysrei {
+    width: 75%;
+    background-image: url("../images/siem-reap-tour-banteaysrei.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*SIEM REAP*/
+#siem-reap-facilities-swimming-pool {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-roof-top-pool.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-facilities-swimming-pool-2 {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-pool.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#siem-reap-facilities-lounge {
+    width: 100%;
+    background-image: url("../images/siem-reap-facilities-lounge.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+
+
+/*PHNOM PENH*/
+
+#phnom-penh-rooms-image-1 {
+    width: 100%;
+    background-image: url("../images/phnom-penh-rooms-1.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+#phnom-penh-facilities-rooftop {
+    width: 100%;
+    background-image: url("../images/phnom-penh-facilities-rooftop.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#phnom-penh-facilities-bathroom {
+    width: 100%;
+    background-image: url("../images/phnom-penh-facilities-bathroom.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#phnom-penh-facilities-tour {
+    width: 100%;
+    background-image: url("../images/phnom-penh-facilities-tour.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#phnom-penh-facilities-coffee-and-tea {
+    width: 100%;
+    background-image: url("../images/phnom-penh-facilities-coffee-and-tea.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#phnom-penh-facilities-business-center {
+    width: 100%;
+    background-image: url("../images/phnom-penh-facilities-business-center.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#phnom-penh-tour-killing-field {
+    width: 75%;
+    background-image: url("../images/phnom-penh-tour-killing-field.jpg");
+    height: 0;
+    padding-top: 37.5%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+#phnom-penh-tour-udong-mountain {
+    width: 75%;
+    background-image: url("../images/phnom-penh-tour-udong-mountain.jpg");
+    height: 0;
+    padding-top: 37.5%;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*SIHANOUKVILLE*/
+
+#sihanoukville-rooms-image-1 {
+    width: 100%;
+    background-image: url("../images/sihanoukville-rooms-1.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+#sihanoukville-facilities-swimming-pool {
+    width: 100%;
+    background-image: url("../images/sihanoukville-facilities-swimming-pool.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#sihanoukville-facilities-lounge {
+    width: 100%;
+    background-image: url("../images/sihanoukville-facilities-lounge.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#sihanoukville-facilities-bathroom {
+    width: 100%;
+    background-image: url("../images/sihanoukville-facilities-bathroom.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#sihanoukville-facilities-tour {
+    width: 100%;
+    background-image: url("../images/sihanoukville-facilities-tour.jpg");
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+}
+#sihanoukville-tour-koh-rong-island {
+    width: 100%;
+    background-image: url("../images/sihanoukville-tour-koh-rong-island.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+#sihanoukville-tour-otres-beach {
+    width: 100%;
+    background-image: url("../images/sihanoukville-tour-otres-beach.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+#sihanoukville-tour-kbal-chhay {
+    width: 100%;
+    background-image: url("../images/sihanoukville-tour-kbal-chhay.jpg");
+    height: 0;
+    padding-top: 62%;
+    background-size: cover;
+}
+
+/*LOCATION*/
+
+#map {
+    width: 100%;
+    height: 220px;
+    margin-left: 0px;
+}
+.page-contents-container-location {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+.page-contents-container-location h2 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    max-width: 100%;
+    font-size: 1.3em;
+    padding-left: 5%;
+    font-weight: normal;
+}
+.page-contents-container-location p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    font-size: 1em;
+    padding-left: 5%;
+    padding-right: 4%;
+}
+
+/*CONTACT*/
+
+#contactus {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+}
+#contactus_pagetitle {
+    font-size: 1.3em;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+#contactus-pagetitle {
+    font-size: 1.1em;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+#contactus_beforeclick {
+    font-size: 1.1em;
+    text-align: left;
+    width: 90%;
+    margin-left: 5%;
+}
+#contactus_thankyou {
+    width: 90%;
+    font-size: 1.1em;
+    margin: auto;
+    line-height: 1.5em;
+    padding-left: 0.5em;
+}
+#booking_thankyou {
+    width: 600px;
+    font-size: 22px;
+    margin: auto;
+    line-height: 35px;
+}
+#contactus_button {
+    font-size: 24px;
+    text-align: center;
+}
+table {
+    border-collapse:;
+    width: 90%;
+    margin-left: 5%;
+}
+tr {
+    width: 100%;
+}
+th {
+    border: none;
+    background: none;
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.1em;
+}
+td {
+    width: 100%;
+}
+.text {
+    width: 100%;
+    font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
+}
+#contactus select {
+    font-size: 16px;
+    font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
+    width: 100%;
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
+}
+#messagelevel {
+    padding-bottom: 145px;
+}
+.button{
+    width: 50%;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 5px;
+    font-size: 1em;
+    border-bottom-style: none;
+    border: none;
+    font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
+}
+.button:hover{
+    background-color: white;
+    color: black;
+    border: solid 1px;
+    border-color: black;
+}
+table td.error input ,
+table td.error textarea ,
+table td.error label {
+    background: #FFCCCC;
+}
+table td p.error {
+    margin: 0;
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 1em;
+}
+* html dl dd.error label {
+    background: none;
+}
+*+html dl dd.error label {
+    background: none;
+}
+.hide_large {
+    height: 10px;
+    text-align: left;
+}
+#header{
+    border-radius: 5px;
+    height: 20px;
+    width: 250px;
+    background-color: black;
+}
+
+
+a:link {
+    color:black; text-decoration:none
+}
+a:visited {
+    color:black; text-decoration:none
+}
+
+a:hover {
+    color:#B0B0B0; text-decoration:none
+}
+.navigation li:hover > a {
+    color:#B0B0B0; text-decoration:none
+}
+
+.hide_small {
+    display: none;
+}
+
+.you-are-here a:link {
+    color:white; text-decoration:none
+}
+.you-are-here a:visited {
+    color:white; text-decoration:none
+}
+.you-are-here a:hover {
+    color:#B0B0B0; text-decoration:none
+}
+
+
+
+
+
