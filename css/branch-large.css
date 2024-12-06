@@ -126,6 +126,7 @@ body {
     font-size: 3.3em;
 }
 .contents-top h2 {
+    font-weight: normal;
     margin-left: 4%;
     font-size: 1.1em;
     text-align: left;
@@ -190,11 +191,7 @@ body {
     position: relative;
 }
 #introduction-message-1 {
-    padding: 0.5rem;
-    color: white;
-    background-color: rgba(39,102,231,255);
-    text-align: center;
-    margin: 0 0rem 1rem -1.5rem;
+    font-weight: 600;
 }
 #introduction-photo-siem-reap {
     width: 40%;
@@ -206,6 +203,8 @@ body {
 #introduction h2 {
     font-size: 1.2em;
     margin-bottom: 0;
+    font-weight: normal;
+    font-weight: 600;
 }
 #introduction p {
     font-size: 1.1em;
@@ -351,13 +350,15 @@ img {
     object-fit: cover;
     border: none;
     display: block;
+    aspect-ratio: 2;
 }
 .gallery-image1 {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+    aspect-ratio: 1.2;
+    margin: 0;
+    display: block;
 }
 .gallery-image2 {
+    aspect-ratio: 1.259;
     width: 100%;
     opacity: 0.4;
 }
@@ -388,8 +389,9 @@ img {
 }
 
 .lightbox-content {
-    max-width: 80%;
+    max-width: 60%;
     margin-bottom: 10px;
+    aspect-ratio: 1.4;
 }
 
 .close {
@@ -462,6 +464,9 @@ img {
     justify-content: center;
     position: relative;
   }
+  .centered-text h1 {
+    font-weight: normal;
+  }
   
   .centered-text::before,
   .centered-text::after {
@@ -475,12 +480,82 @@ img {
 #room {
     padding-top: 5rem;
 }
+
+.room-booking-pic {
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: 1.4;
+}
+
+#bed4-dorm {
+    background-image: url("../siem-reap/siem-reap-img/4-bed-dorm.jpg");
+}
+
+#bed6-dorm {
+    background-image: url("../siem-reap/siem-reap-img/6-bed-dorm.jpg"); 
+}
+#sbed6-dorm {
+    background-image: url("../siem-reap/siem-reap-img/superior-6bed.jpg");  
+}
+#bed12-dorm {
+    background-image: url("../siem-reap/siem-reap-img/12-bed-dorm.jpg");  
+}
+#sd-room {
+    background-image: url("../siem-reap/siem-reap-img/standard-bouble.jpg");  
+}
+#st-room {
+    background-image: url("../siem-reap/siem-reap-img/standard-twin.jpg");  
+}
+#srd-room {
+    background-image: url("../siem-reap/siem-reap-img/superior-double.jpg");  
+}
+#srt-room {
+    background-image: url("../siem-reap/siem-reap-img/superior-twin.jpg");
+    background-position: center bottom;  
+}
+#dt-room {
+    background-image: url("../siem-reap/siem-reap-img/deluxe-room.jpg");  
+}
+#dtp-room {
+    background-image: url("../siem-reap/siem-reap-img/deluxe-room.jpg");  
+}
+
 .swiper1, .swiper2, .swiper3 {
     position: relative;
     width: 100%;
 }
 .swiper3 .swiper-slide {
     padding: 0;
+}
+
+.swiper-button-next::after {
+    padding: 40px 10px 40px 14px;
+    color: rgb(87, 87, 87);
+    background: linear-gradient(
+        to bottom , 
+        rgba(121, 119, 119, 0),
+        rgba(164, 157, 157, 0.246),
+        rgba(15, 14, 14, 0) 
+    );  
+    transition: transform 0.3s ease-in-out; 
+}
+.swiper-button-prev::after {
+    padding: 40px 10px 40px 10px;
+    color: rgb(87, 87, 87);
+    background: linear-gradient(
+        to bottom , 
+        rgba(121, 119, 119, 0),
+        rgba(164, 157, 157, 0.246),
+        rgba(15, 14, 14, 0) 
+    );   
+}
+
+.swiper-button-prev,  .swiper-button-next{
+    transition: transform 0.2s ease-in-out; 
+}
+
+.swiper-button-prev:hover, .swiper-button-next:hover {
+    transform: scale(1.2);
 }
 
 .swiper3 h3,
@@ -490,6 +565,8 @@ img {
 }
 
 .room-line h1 {
+    font-size: 1.5em;
+    font-weight: normal;
     margin: 0rem 1rem 0.5rem 1rem;
 }
 .room-line h4 {
@@ -516,14 +593,6 @@ img {
     margin-bottom: 2rem;
 }
 
-.swiper-slide img {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    object-fit: cover;
-    border: none;
-    display: block;
-}
 
 .swiper-slide {
     text-align: left;
@@ -553,7 +622,10 @@ img {
     padding-left: 0.5rem;
 }
 .room-description h2 {
+    font-size: 1.35em;
+    font-weight: normal;
     margin: 0;
+    padding-top: 0.5rem;
     padding-left: 0.5rem;
 }
 
@@ -594,23 +666,72 @@ img {
 }
 
 .facilities-services {
-    width: 50%;
+    width: 500px;
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.facilities-services-1 {
+    width: 50%;
 }
 .facilities-services-2 {
     width: 50%;
 }
 .facilities-services div {
-    margin: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .5rem;
 }
+
+.facilities-services p {
+    margin: 0 0 3rem 0;
+    font-size: 0.9em;
+}
+
 
 /* PAGE EXPERINCE */
 #tour-activity {
     padding-top: 5rem;
     width: 100%;
     text-align: center;
+}
+
+.siem-reap-exp-photo {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 2;
+}
+
+#small-circuit {
+    background-image: url("../siem-reap/experince/Angkor-Wat-Sunrise.jpg");
+}
+#grand-circuit {
+    background-image: url("../siem-reap/experince/phnom-bakeng-sunset.jpg");
+}
+#cycling-tour {
+    background-image: url("../siem-reap/experince/cycling-2.jpg");
+}
+#streetfood-tour {
+    background-image: url("../siem-reap/experince/streetfood-1.jpg");
+}
+#bracelet-class {
+    background-image: url("../siem-reap/experince/bracelet-2.jpg");
+}
+#yoga-class {
+    background-image: url("../siem-reap/experince/yoga-2.jpg");
+}
+#social-night {
+    background-image: url("../siem-reap/experince/social-night.jpg");
+}
+#monk-blessing {
+    background-image: url("../siem-reap/experince/monk-blessing.jpg");
+}
+
+#kulen-tour {
+    background-image: url("../siem-reap/experince/kulen-waterfall.jpg");
 }
 
 /*PAGE FOR LOCATION*/
@@ -634,6 +755,10 @@ img {
 
 .location-map {
     width: 50%;
+}
+.location-maps {
+    aspect-ratio: 1.5;
+    width: 100%;
 }
 .location-descripe {
     width: 50%;
@@ -683,22 +808,17 @@ img {
 
 #top-photo-siem-reap {
     width: 100%;
-    overflow: hidden;
+    height: 700px;
     position: relative;
+    background-repeat: no-repeat;
+    background-image: url("../images/siem-reap-top-photo-1200-480.jpg");
+    background-position: center;
+    background-size: cover;
 }
-.top-photo-siem-reap {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.329);
-    height: 100%;
-    width: 100%;
-}
-.top-photo-siem-reap2 {
-    display: block;
-    margin-top: -20rem;
-    width: 100%;
-    height: auto;
-}
+
+
 #top-photo-siem-reap h1 {
+    font-weight: normal;
     position: absolute;
     top: 5rem;
     left: 2.5rem;
@@ -795,6 +915,9 @@ img {
     max-width: 840px;
     margin-left: auto;
     margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.582);
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
 }
 
 .totalguest {
@@ -819,7 +942,8 @@ img {
 }
 
 .booking-tittle {
-    color: #ffffff;
+    text-align: center;
+    color: #000000;
     padding: 0.5rem 0 0.7rem 0.5rem;
     font-size: 22px;
 }
@@ -844,6 +968,9 @@ label {
   }
   
   .ifta-label {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     text-align: left;
     font-weight: 500;
     font-size: 12px;
@@ -855,6 +982,9 @@ label {
     pointer-events:none;
   }
   .ifta-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer !important;
     font-size: 15px;
     border:0;
@@ -887,6 +1017,16 @@ label {
     cursor: pointer;
   }
 
+  .loading-animation {
+    font-size: 16px;
+    color: #fff;
+    display: none;
+}
+
+.button-text {
+    display: inline-block;
+}
+
   .booking-mobile-btn {
     display: none;
 }
@@ -897,9 +1037,9 @@ label {
     top: 100%; /* Position below the input field */
     left: 50%;
     transform: translateX(-50%);
-    border: 1px solid #ccc;
-    background-color: #fff;
-    padding: 10px;
+    border: 1px solid #d1d1d1;
+    background-color: #ffffff;
+    padding: 0px;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -908,7 +1048,6 @@ label {
 /* Style for the calendar itself */
 .calendar {
     text-align: center;
-    border: 1px solid #ddd;
     padding: 10px;
     box-sizing: border-box; /* Ensure padding doesn’t affect width */
 }
@@ -918,7 +1057,6 @@ label {
     font-weight: bold;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* Position nav buttons relative to header */
 }
 
 /* Navigation buttons styling */
@@ -930,20 +1068,23 @@ label {
 }
 
 .next-month {
+    font-size: 15px;
     right: 1rem;
+    position: absolute;
 }
 
 .prev-month {
+    font-size: 15px;
+    position: absolute;
     left: 1rem;
+    display: none;
 }
+
 
 /* Weekdays and days styling */
 .weekdays {
-    font-weight: bold;
-    color: white;
-    background-color: #797b7c;
+    color: rgb(2, 41, 63);
     margin: 0.5rem 0;
-    border-radius: 0.5rem;
 }
 
 .weekdays, .days {
@@ -964,6 +1105,13 @@ label {
 
 .days div.disabled {
     color: #ccc;
+}
+
+.selected-date {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    background-color: #526f91;
+    color: white;
 }
 
 .days div.start-date {
@@ -987,6 +1135,11 @@ label {
 .datepicker {
     display: flex;
 }
+
+.in-range-hover {
+    background-color: #c6e5e9;
+}
+
 
 /*PAGE CONTENTS SIEM REAP*/
 
@@ -1345,4 +1498,151 @@ a:hover {
     text-align: left;
     padding-bottom: 7%;
     margin-bottom: 0;
+}
+
+/*SVG symbol*/
+.swimmingpool-svg {
+    background-image: url("../symbol/1.png");
+    background-size: 100%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+}
+
+.reception-svg {
+    display: block;
+    background-image: url("../symbol/6.png");
+    background-size: 62%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center; /* Centers the background image */
+}
+
+.travel-svg {
+    background-image: url("../symbol/7.png");
+    background-size: 65%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.barcafe-svg {
+    background-image: url("../symbol/3.png");
+    background-size: 100%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+.restuarant-svg {
+    background-image: url("../symbol/9.png");
+    background-size: 40%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.laundry-svg {
+    background-image: url("../symbol/2.png");
+    background-size: 50%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.storage-svg {
+    background-image: url("../symbol/11.png");
+    background-size: 60%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.commonarea-svg {
+    background-image: url("../symbol/4.png");
+    background-size: 75%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.wifi-svg {
+    background-image: url("../symbol/10.png");
+    background-size: 55%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.bathroom-svg {
+    background-image: url("../symbol/5.png");
+    background-size: 65%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.parking-svg {
+    background-image: url("../symbol/8.png");
+    background-size: 70%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.parking-svg-mobile {
+    display: none;
+}
+
+.pc {
+    display: none;
+}
+
+.cctv-svg {
+    background-image: url("../symbol/12.png");
+    background-size: 70%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.location-photo-svg {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: -0.25rem;
+}
+
+#walking-svg {
+    background-image: url("../symbol/walk.png");
+}
+
+#airplane-svg {
+    background-image: url("../symbol/airplane.png");
+}
+#address-svg {
+    background-image: url("../symbol/address.png");
+}
+#mail-svg {
+    background-image: url("../symbol/mail.png");
+}
+#phone-svg {
+    background-image: url("../symbol/call.png");
+}
+#whatsapp-svg {
+    background-image: url("../symbol/whatsapp.png");
+}
+#telegram-svg {
+    background-image: url("../symbol/telegram.png");
 }

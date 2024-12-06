@@ -67,11 +67,15 @@ img {
     text-align: center;
     font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
     color: white;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 #menu li a:hover {
     color:#B0B0B0; text-decoration:none
+}
+
+#menu .last-booking a {
+    color: #a3323200;
 }
 #whereweare_secondlevel_small {
     display: none;
@@ -185,6 +189,22 @@ img {
     font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
     position: relative; 
 }
+
+body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#background.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    filter: blur(3px);
+}
+
 .contents-top {
     width: 1200px;
     text-align: center;
@@ -224,36 +244,23 @@ img {
     padding-top: 62%;
 }
 #top-photo-siem-reap {
+    z-index: 1;
     width: 100%;
-    height: auto;
-    overflow: hidden;
+    aspect-ratio: 1.3;
     position: relative;
+    background-repeat: no-repeat;
+    background-image: url("../images/siem-reap-top-photo-1200-480.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
-.top-photo-siem-reap{
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
-
-.top-photo-siem-reap{
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.216);
-    width: 100%;
-    height: 100%;
-}
-
-.top-photo-siem-reap2 {
-    display: block;
-    width: 100%;
-    height: auto;
-}
 
 #top-photo-siem-reap h1 {
+    font-weight: 600;
     position: absolute;
     top: 3rem;
-    left: 1rem;
-    font-size: 1.3em;
+    left: 0.5rem;
+    font-size: 1.5em;
     color: #ffffff;
 }
 #top-photo-phnom-penh {
@@ -283,9 +290,58 @@ img {
     background-size: cover;
     height: 0;
     padding-top: 75%;
-}   
+}
 
-/* BOOKING */
+.booking-mobile-btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: fixed;
+    z-index: 4000;
+    padding: 1rem 0 0 0;
+    width: 80%;
+    height: 45px;
+    border-radius: 1rem;
+    background-color: #3b6e70;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.712);
+    text-align: center;
+    left: 50%;
+    bottom: 0.2rem;
+    transform: translateX(-50%);
+}
+
+#overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999 !important;
+}
+
+body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#background.no-scroll {
+    filter: blur(3px);
+    pointer-events: none;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100svh;
+    top: 0;
+    left: 0;
+}
+
+
+
+/* Form Container style */
 #container-form {
     width: 100%;
     display: none;
@@ -336,7 +392,8 @@ img {
     width: 100%;
 }
 .select-hostel {
-    width: 100%;
+    color: #000000;
+    width: 101.1%;
     margin-left: auto !important;
     margin-right: auto !important;
 }
@@ -354,6 +411,8 @@ img {
 #bookingForm {
     display: block;
     max-width: 500px !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .datepicker {
@@ -361,8 +420,8 @@ img {
 }
 
 .booking-tittle {
+    text-align: center;
     font-size: 15px;
-    font-weight: bold;
 }
 
 label {
@@ -387,14 +446,20 @@ label {
   .ifta-label {
     font-weight: 500;
     font-size: 12px;
-    color: #000000;
+    color: #074d4d;
     margin-bottom:-30px;
     z-index:1;
     position:relative;
     padding: 10px 10px 10px 10px;
     pointer-events:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
   .ifta-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer !important;
     font-size: 15px;
     border:0;
@@ -415,6 +480,7 @@ label {
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.555);
     background-color: #3b6e70;
     cursor: pointer;
+    font-weight: normal;
   }
 
   /* Date picker */
@@ -446,7 +512,6 @@ label {
 .calendar {
     margin: 0.1rem;
     padding: 0.2rem;
-    border: 1px solid rgb(156, 156, 156);
     font-size: 1rem;
     width: 140%; /* Make each calendar take full width */
 }
@@ -468,18 +533,20 @@ label {
 }
 
 .next-month {
+    top: 0.3rem;
+    color: #000000;
     right: 1rem;
 }
 
 .prev-month {
+    top: 0.3rem;
+    color: #000000;
     left: 1rem;
 }
 
 /* Weekdays and days styling */
 .weekdays {
-    font-weight: bold;
-    color: white;
-    background-color: #797b7c;
+    color: rgb(0, 0, 0);
     margin: 0.5rem 0;
     border-radius: 0.5rem;
 }
@@ -526,34 +593,6 @@ label {
     display: flex;
 }
 
-.booking-mobile-btn {
-    font-size: 1.2rem;
-    font-weight: bold;
-    position: fixed;
-    z-index: 4000;
-    padding: 1rem 0 0 0;
-    width: 80%;
-    height: 45px;
-    border-radius: 1rem;
-    background-color: #3b6e70;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.712);
-    text-align: center;
-    left: 50%;
-    bottom: 0.2rem;
-    transform: translateX(-50%);
-}
-
-#overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999 !important;
-}
-
 
 /*PAGE FOR PHOTO*/
 .gallery {
@@ -575,11 +614,13 @@ label {
 
 .gallery-item1 {
     width: 100%;
-    height: 30svh;
+    aspect-ratio: 1.5;
     overflow: hidden;
+    display: none;
 }
 
 .gallery-image {
+    aspect-ratio: 1.5;
     height: 50%;
     width: 100%;
     margin: 0;
@@ -592,10 +633,12 @@ label {
     object-fit: cover;
     height: 100%;
     width: 100%;
+    display: none;
 }
 .gallery-image2 {
     width: 100%;
     opacity: 0.4;
+    aspect-ratio: 1.5;
 }
 
 .more-img {
@@ -718,6 +761,44 @@ label {
 #room {
     padding-top: 2rem;
 }
+.room-booking-pic {
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: 1.5;
+}
+
+#bed4-dorm {
+    background-image: url("../siem-reap/siem-reap-img/4-bed-dorm.jpg");
+}
+
+#bed6-dorm {
+    background-image: url("../siem-reap/siem-reap-img/6-bed-dorm.jpg"); 
+}
+#sbed6-dorm {
+    background-image: url("../siem-reap/siem-reap-img/superior-6bed.jpg");  
+}
+#bed12-dorm {
+    background-image: url("../siem-reap/siem-reap-img/12-bed-dorm.jpg");  
+}
+#sd-room {
+    background-image: url("../siem-reap/siem-reap-img/standard-bouble.jpg");  
+}
+#st-room {
+    background-image: url("../siem-reap/siem-reap-img/standard-twin.jpg");  
+}
+#srd-room {
+    background-image: url("../siem-reap/siem-reap-img/superior-double.jpg");  
+}
+#srt-room {
+    background-image: url("../siem-reap/siem-reap-img/superior-twin.jpg");
+    background-position: center bottom;  
+}
+#dt-room {
+    background-image: url("../siem-reap/siem-reap-img/deluxe-room.jpg");  
+}
+#dtp-room {
+    background-image: url("../siem-reap/siem-reap-img/deluxe-room.jpg");  
+}
 .swiper1, .swiper2, .swiper3 {
     position: relative;
     width: 100%;
@@ -727,20 +808,25 @@ label {
     height: auto;
 }
 
-
 .swiper3 h3,
 .swiper3 h4,
 .swiper3 p{
-    padding: 0 1rem 0 1rem;
+    margin: 0;
+    padding: 0 0.5rem 0 0.5rem;
 }
 
 .swiper2 h3,
-.swiper2 h4,
+.swiper2 h4 {
+
+    font-weight: 600;
+    padding: 0rem 0rem 0rem 0.2rem;
+}
 .swiper2 p{
-    padding: 0 1rem 0 1rem;
+    padding: 0rem 0rem 0rem 0.2rem;
 }
 
 .room-line h1 {
+    font-weight: 600;
     font-size: 1.17em;
     margin: 0rem 1rem 0.5rem 1rem;
 }
@@ -761,24 +847,24 @@ label {
 }
 
 .room-desripe h4 {
-    font-size: 1.1em;
+    font-size: 0.92em;
 }
 
 .swiper-wrapper {
     margin-bottom: 2rem;
 }
 
-.swiper-slide img {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    object-fit: cover;
-    border: none;
-    display: block;
+.swiper .swiper1  {
+    margin-bottom: 2rem;
+    display: block !important;
 }
 
 .swiper-slide {
+    width: 10%;
     text-align: left;
+}
+.swiper1 .swiper-slide {
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .swiper-slide h3,
@@ -792,20 +878,24 @@ label {
 }
 
 .room-description {
-    position: absolute;
-    bottom: 0rem;
-    color: white;
-    background-color: rgba(95, 95, 95, 0.637);
+    position: relative;
+    color: rgb(255, 255, 255);
+    background: rgb(87,87,87);
+    background: linear-gradient(90deg, rgb(168, 168, 168) 0%, rgba(210,210,210,1) 87%, rgba(255,255,255,1) 100%);
     width: 100%;
+    height: 80px;
 }
 .room-description p {
     font-size: 0.8em;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
     padding-left: 0.5rem;
 }
 .room-description h2 {
+    font-size: 1.2em;
+    font-weight: normal;
     margin: 0;
+    padding-top: 0.2rem;
     padding-left: 0.5rem;
 }
 
@@ -832,6 +922,7 @@ label {
     text-decoration: underline;
     margin: 0;
     padding: 0;
+    color: #000000;
 }
 
 /*Facilities/services*/
@@ -847,17 +938,72 @@ label {
 
 .facilities-services {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    display: block;
+    margin-left: auto;
 }
 .facilities-services-2 {
     width: 100%;
     text-align: left;
+    font-size: 0.92em;
 }
+
 .facilities-services div {
     margin: 0.5rem;
     font-size: 0.85em;
+}
+.fac-row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    display: none;
+}
+.fac-row p{
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (min-width: 500px) {
+    .facilities-services {
+        width: 100%;
+        display: flex;
+        margin-left: auto;
+        justify-content: center;
+        text-align: center;
+    }
+    .fac-row {
+        display: block;
+    }
+}
+
+.facilities-photo {
+    aspect-ratio: 2;
+    background-size: cover;
+}
+
+#facility-pool {
+    background-image: url("../siem-reap/siem-reap-img/swimmingpool-facility.jpg");
+}
+
+#facility-reception {
+    background-image: url("../siem-reap/siem-reap-img/facility-reception.jpg");
+}
+
+#facility-restaurant {
+    background-image: url("../siem-reap/siem-reap-img/restaurant-facility.jpg");
+}
+
+#facility-lounge {
+    background-image: url("../siem-reap/siem-reap-img/common-area-facility.jpg");
+    background-position: bottom center;
+}
+
+#facility-bathroom {
+    background-image: url("../siem-reap/siem-reap-img/bathroom-f.jpg");
+    background-position: center;
+}
+
+#parking {
+    display: none;
 }
 
 /* PAGE EXPERINCE */
@@ -865,6 +1011,43 @@ label {
     padding-top: 2rem;
     width: 100%;
     text-align: center;
+    font-size: 0.92em;
+}
+
+.siem-reap-exp-photo {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 2;
+}
+
+#small-circuit {
+    background-image: url("../siem-reap/experince/Angkor-Wat-Sunrise.jpg");
+}
+#grand-circuit {
+    background-image: url("../siem-reap/experince/phnom-bakeng-sunset.jpg");
+}
+#cycling-tour {
+    background-image: url("../siem-reap/experince/cycling-2.jpg");
+}
+#streetfood-tour {
+    background-image: url("../siem-reap/experince/streetfood-1.jpg");
+}
+#bracelet-class {
+    background-image: url("../siem-reap/experince/bracelet-2.jpg");
+}
+#yoga-class {
+    background-image: url("../siem-reap/experince/yoga-2.jpg");
+}
+#social-night {
+    background-image: url("../siem-reap/experince/social-night.jpg");
+}
+#monk-blessing {
+    background-image: url("../siem-reap/experince/monk-blessing.jpg");
+}
+
+#kulen-tour {
+    background-image: url("../siem-reap/experince/kulen-waterfall.jpg");
 }
 
 /*PAGE FOR LOCATION*/
@@ -872,6 +1055,7 @@ label {
 #location {
     padding-top: 2rem;
     padding-bottom: 5rem;
+    font-size: 0.92em;
 }
 .location {
     display: block;
@@ -888,8 +1072,24 @@ label {
 .location-map {
     width: 100%;
 }
+.location-maps {
+    aspect-ratio: 1.5;
+    width: 100%;
+}
 .location-descripe {
     width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+    .location {
+        display: flex;
+    }
+    .location-map {
+        width: 50%;
+    }
+    .location-descripe {
+        width: 50%;
+    }
 }
 
 
@@ -908,12 +1108,12 @@ label {
     display: none;
 }
 #introduction h2 {
-    font-size: 1.1em;
+    font-size: 1em;
     padding: 0 1rem 0 1rem;
     margin: 0;
 }
 #introduction p {
-    font-size: 1.1em;
+    font-size: 0.92em;
 }
 #introduction_message {
     font-size: 1em;
@@ -1420,4 +1620,143 @@ a:hover {
 }
 .inline-2 a:hover {
     color:#B0B0B0; text-decoration:none
+}
+
+/*SVG symbol*/
+.swimmingpool-svg {
+    background-image: url("../symbol/1.png");
+    background-size: 100%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+}
+
+.reception-svg {
+    display: block;
+    background-image: url("../symbol/6.png");
+    background-size: 62%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.travel-svg {
+    background-image: url("../symbol/7.png");
+    background-size: 65%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.barcafe-svg {
+    background-image: url("../symbol/3.png");
+    background-size: 100%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+.restuarant-svg {
+    background-image: url("../symbol/9.png");
+    background-size: 40%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.laundry-svg {
+    background-image: url("../symbol/2.png");
+    background-size: 50%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.storage-svg {
+    background-image: url("../symbol/11.png");
+    background-size: 60%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.commonarea-svg {
+    background-image: url("../symbol/4.png");
+    background-size: 75%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.wifi-svg {
+    background-image: url("../symbol/10.png");
+    background-size: 55%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.bathroom-svg {
+    background-image: url("../symbol/5.png");
+    background-size: 65%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.parking-svg {
+    background-image: url("../symbol/8.png");
+    background-size: 70%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.cctv-svg {
+    background-image: url("../symbol/12.png");
+    background-size: 70%;
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.location-photo-svg {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: -0.25rem;
+}
+
+#walking-svg {
+    background-image: url("../symbol/walk.png");
+}
+
+#airplane-svg {
+    background-image: url("../symbol/airplane.png");
+}
+#address-svg {
+    background-image: url("../symbol/address.png");
+}
+#mail-svg {
+    background-image: url("../symbol/mail.png");
+}
+#phone-svg {
+    background-image: url("../symbol/call.png");
+}
+#whatsapp-svg {
+    background-image: url("../symbol/whatsapp.png");
+}
+#telegram-svg {
+    background-image: url("../symbol/telegram.png");
 }

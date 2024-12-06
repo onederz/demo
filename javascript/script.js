@@ -26,7 +26,6 @@
     // Call the function when the page loads
     window.onload = setDates;
 
-
     // date picker
     document.addEventListener('DOMContentLoaded', () => {
         const checkInInput = document.getElementById('checkinDate');
@@ -52,17 +51,17 @@
             const firstDay = new Date(year, month, 1);
             const lastDay = new Date(year, month + 1, 0);
     
-            let monthName = date.toLocaleString('default', { month: 'long' });
+            const monthName = date.toLocaleString('default', { month: 'long' });
             let html = '<div class="calendar">';
             html += `<div class="header">
                 <div class="nav-buttons">
-                    <button class="prev-month">&lt;</button>
+                    <button class="prev-month">◀</button>
                     <span>${monthName} ${year}</span>
-                    <button class="next-month">&gt;</button>
+                    <button class="next-month">▶</button>
                 </div>
             </div>`;
             html += '<div class="weekdays">';
-            ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(day => {
+            ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].forEach(day => {
                 html += `<div>${day}</div>`;
             });
             html += '</div>';
@@ -77,15 +76,18 @@
             for (let day = 1; day <= lastDay.getDate(); day++) {
                 const currentDate = new Date(year, month, day);
                 const isBeforeToday = currentDate < today;
-                const isInRange = startDate && endDate && currentDate > startDate && currentDate < endDate;
                 const isStartDate = startDate && currentDate.toDateString() === startDate.toDateString();
                 const isEndDate = endDate && currentDate.toDateString() === endDate.toDateString();
+                const isInRange = startDate && endDate && currentDate > startDate && currentDate < endDate;
     
                 html += `<div 
-                    class="${isBeforeToday ? 'disabled' : (isStartDate ? 'start-date' : isEndDate ? 'end-date' : isInRange ? 'in-range' : '')}"
+                    class="${isBeforeToday ? 'disabled' : 
+                        (isStartDate ? 'start-date' : 
+                        isEndDate ? 'end-date' : 
+                        isInRange ? 'in-range' : '')}"
                     data-date="${currentDate.toDateString()}"
                     ${isBeforeToday ? 'style="pointer-events: none;"' : ''}>
-                    ${formatDate(currentDate).split(' ')[0]} <!-- Day -->
+                    ${day}
                 </div>`;
     
                 if ((firstDay.getDay() + day) % 7 === 0) {
@@ -100,21 +102,51 @@
     
         function updateCalendars() {
             const isSmallScreen = window.matchMedia('(max-width: 600px)').matches;
-    
+        
             // Generate one month or two months based on screen width
             const calendarsHtml = isSmallScreen 
                 ? generateCalendar(currentMonth) 
                 : generateCalendar(currentMonth) + generateCalendar(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1));
-    
+        
             calendarContainer.innerHTML = calendarsHtml;
             attachEventListeners();
+        
+            // Disable previous month button if the calendar is showing the current month
+            const prevMonthButton = document.querySelector('.prev-month');
+            const today = new Date();
+        
+            // Disable "Previous" button only when the current month is being shown
+            if (currentMonth.getFullYear() === today.getFullYear() && currentMonth.getMonth() === today.getMonth()) {
+                prevMonthButton.style.display = 'none'; // Hide the button if it's the current month
+            } else {
+                prevMonthButton.style.display = 'inline-block'; // Show the button otherwise
+            }
         }
+        
+        
+        function navigateMonth(direction) {
+            // Check if the calendar is showing the current month
+            const today = new Date();
+            if (direction === -1 && (currentMonth.getFullYear() === today.getFullYear() && currentMonth.getMonth() === today.getMonth())) {
+                return; // Don't allow navigating to the previous month if it's the current month
+            }
+        
+            // Navigate to the next or previous month
+            currentMonth.setMonth(currentMonth.getMonth() + direction);
+            updateCalendars();
+        }
+        
     
         function handleDateClick(e) {
             const target = e.target;
     
             if (target.tagName === 'DIV' && target.dataset.date && !target.classList.contains('disabled')) {
                 const clickedDate = new Date(target.dataset.date);
+    
+                // Prevent selecting the same date for both start and end
+                if (startDate && clickedDate.toDateString() === startDate.toDateString()) {
+                    return; // Do nothing if the same date is clicked
+                }
     
                 if (!startDate || (startDate && endDate)) {
                     startDate = clickedDate;
@@ -141,6 +173,32 @@
             updateCalendars();
         }
     
+        function handleDateHover(e) {
+            const target = e.target;
+    
+            // Only respond to valid date elements
+            if (target.tagName === 'DIV' && target.dataset.date && !target.classList.contains('disabled') && startDate) {
+                const hoveredDate = new Date(target.dataset.date);
+    
+                // Clear previous hover highlights
+                calendarContainer.querySelectorAll('.in-range-hover').forEach(el => {
+                    el.classList.remove('in-range-hover');
+                });
+    
+                // Highlight dates between startDate and hoveredDate
+                const start = startDate < hoveredDate ? startDate : hoveredDate;
+                const end = startDate > hoveredDate ? startDate : hoveredDate;
+    
+                calendarContainer.querySelectorAll('[data-date]').forEach(el => {
+                    const date = new Date(el.dataset.date);
+    
+                    if (date >= start && date <= end && !el.classList.contains('disabled')) {
+                        el.classList.add('in-range-hover');
+                    }
+                });
+            }
+        }
+                    
         function attachEventListeners() {
             calendarContainer.querySelectorAll('.prev-month').forEach(btn => {
                 btn.addEventListener('click', () => navigateMonth(-1));
@@ -148,6 +206,11 @@
     
             calendarContainer.querySelectorAll('.next-month').forEach(btn => {
                 btn.addEventListener('click', () => navigateMonth(1));
+            });
+    
+            // Attach hover event for range highlighting
+            calendarContainer.querySelectorAll('.days div').forEach(day => {
+                day.addEventListener('mouseenter', handleDateHover);
             });
     
             calendarContainer.addEventListener('click', handleDateClick);
@@ -189,6 +252,7 @@
         // Update calendar on window resize
         window.addEventListener('resize', updateCalendars);
     });
+    
 
 // Booking
 function formatDate(date) {
@@ -197,28 +261,29 @@ function formatDate(date) {
     const day = String(date.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
 }
-document.getElementById('bookingForm').addEventListener('submit', function(event) {
+
+document.getElementById('bookingForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    
+
     const property = document.getElementById('property').value;
     const checkinDate = formatDate(new Date(document.getElementById('checkinDate').value));
     const checkoutDate = formatDate(new Date(document.getElementById('checkoutDate').value));
     const totalGuests = document.getElementById('totalGuests').value;
-    
+
     if (!property || !checkinDate || !checkoutDate || !totalGuests) {
         alert('Please fill in all fields.');
         return;
     }
-    
+
     // Simple validation
     const checkin = new Date(checkinDate);
     const checkout = new Date(checkoutDate);
-    
+
     if (checkout <= checkin) {
         alert('Check-out date must be after the check-in date.');
         return;
     }
-    
+
     // Map properties to their specific URLs
     const propertyUrls = {
         'property1': 'https://hotels.cloudbeds.com/en/reservation/PeZXom?currency=usd',
@@ -228,20 +293,29 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
         'property5': 'https://hotels.cloudbeds.com/reservation/VUxg0w',
         'property6': 'https://hotels.cloudbeds.com/en/reservation/XS8E0S?currency=usd'
     };
-    
+
     const baseUrl = propertyUrls[property];
-    
+
     if (!baseUrl) {
         alert('Invalid property selected.');
         return;
     }
-    
-    // Build the booking URL with parameters
-    const url = `${baseUrl}#checkin=${encodeURIComponent(checkinDate)}&checkout=${encodeURIComponent(checkoutDate)}&guests=${encodeURIComponent(totalGuests)}`;
-    
-    // Redirect to the booking page
-    window.open(url, '_self');
+
+    // Show loading animation
+    const button = document.getElementById('booking-btn');
+    button.querySelector('.button-text').style.display = 'none';
+    button.querySelector('.loading-animation').style.display = 'inline';
+    button.disabled = true; // Disable the button to prevent multiple submissions
+
+    // Simulate loading delay before redirect (e.g., wait for processing)
+    setTimeout(() => {
+        const url = `${baseUrl}#checkin=${encodeURIComponent(checkinDate)}&checkout=${encodeURIComponent(checkoutDate)}&guests=${encodeURIComponent(totalGuests)}`;
+
+        // Redirect to the booking page
+        window.open(url, '_self');
+    }, 2000);
 });
+
 
 
 // Mobile Show/hide booking
@@ -249,13 +323,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const containerForm = document.getElementById('container-form');
     const overlay = document.getElementById('overlay');
     const openButton = document.querySelector('.booking-mobile-btn');
+    const menu = document.getElementById('menu');
+    const hamburgerIcon = document.getElementById('humburger_icon');
+    const background = document.getElementById('background'); // For background blur
 
+    // Open the booking form
     function openForm() {
         containerForm.classList.add('show');
         overlay.style.display = 'block';
         document.body.classList.add('no-scroll');
     }
 
+    // Close the booking form
     function closeForm() {
         containerForm.classList.add('closing');
         setTimeout(() => {
@@ -265,49 +344,68 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1000); // Match the duration of the closing animation
     }
 
-    // Open form when button is clicked
+    // Open the menu and apply blur effect
+    function openMenu() {
+        menu.classList.add('show');
+        document.body.classList.add('no-scroll'); // Prevent scroll when menu is open
+        background.classList.add('no-scroll'); // Apply background blur
+    }
+
+    // Close the menu and remove blur effect
+    function closeMenu() {
+        menu.classList.remove('show');
+        document.body.classList.remove('no-scroll'); // Enable scroll when menu is closed
+        background.classList.remove('no-scroll'); // Remove background blur
+    }
+
+    // Open form when booking button is clicked
     openButton.addEventListener('click', openForm);
 
     // Close form when overlay is clicked
     overlay.addEventListener('click', closeForm);
 
-    // Prevent closing when clicking inside the form container
+    // Prevent closing the form when clicking inside the form container
     containerForm.addEventListener('click', function(event) {
         event.stopPropagation();
     });
+
+    // Open the menu when hamburger icon is clicked
+    hamburgerIcon.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (menu.classList.contains('show')) {
+            closeMenu(); // Close the menu if it's already open
+        } else {
+            openMenu(); // Otherwise, open the menu
+        }
+    });
+
+    // Close the menu and enable scrolling when clicking outside of the menu
+    overlay.addEventListener('click', function() {
+        if (menu.classList.contains('show')) {
+            closeMenu();
+        }
+    });
+
+    // Close the menu when clicking anywhere outside of the menu (not on the hamburger icon or menu items)
+    document.addEventListener('click', function(event) {
+        if (!menu.contains(event.target) && !hamburgerIcon.contains(event.target) && menu.classList.contains('show')) {
+            closeMenu();
+        }
+    });
+
+    // Allow the links inside the menu to function properly
+    const menuLinks = menu.querySelectorAll('li a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            // Here, we don't care if the link jumps or not for now
+            // But if needed, you could prevent it using event.preventDefault()
+
+            // Close the menu for all valid links
+            closeMenu();
+        });
+    });
 });
 
-// Mobile Zoom on Scroll
-function debounce(func, wait) {
-    let timeout;
-    return function (...args) {
-        const context = this;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), wait);
-    };
-}
-
-function applyScaleOnScroll() {
-    const images = document.querySelectorAll('.destination-photo-mobile'); // Select all images
-
-    // Only run this if the screen width is 600px or less
-    if (window.innerWidth <= 600) {
-        const windowHeight = window.innerHeight;
-
-        images.forEach(function(image) {
-            const rect = image.getBoundingClientRect();
-
-            // Check if the image is in the viewport
-            if (rect.top <= windowHeight && rect.bottom >= 0) {
-                // Apply scale of 1 when in viewport
-                image.style.transform = 'scale(1)';
-            } else {
-                // Apply scale of 0 when out of viewport
-                image.style.transform = 'scale(0)';
-            }
-        });
-    }
-}
 
 // Attach the event listener
 window.addEventListener('scroll', debounce(applyScaleOnScroll, 10));
@@ -331,3 +429,4 @@ function toggleReadMore(dotsId, moreTextId, readMoreBtnId, readLessBtnId) {
         readLessBtn.style.display = "inline";
     }
 }
+

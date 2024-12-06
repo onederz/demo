@@ -47,7 +47,9 @@ img {
     width: 100%;
     height: 3em;
     position: fixed; 
-    background-color: rgba(255, 255, 255, 0.842);
+    background: rgba(255, 255, 255, 0.808);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     z-index: 5;
 }
 #main_logo_small {
@@ -84,8 +86,8 @@ img {
     text-align: center;
     font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
     color: white;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
 }
 #menu li a:hover {
     color:#B0B0B0; text-decoration:none
@@ -171,7 +173,9 @@ img {
     left: 0.5em;
     width: 1.5em;
     height: 0.25em;
-    background: white;
+    background: rgba(255, 255, 255, 0.936);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
 #humburger_icon a:before {
     margin-top: -6px;
@@ -204,6 +208,7 @@ img {
 /*TOP PHOTO*/
 
 #background {
+    overflow: hidden;
     width: 100%;
     height: auto;
     margin-left: auto;
@@ -213,26 +218,20 @@ img {
     position: relative;
 }
 #top-page-image {
-    z-index: 2;
+    background-repeat: no-repeat;
+    height: 350px;
     position: relative;
+    background-position: center ;
     background-size: cover;
-    width: 100%;
+    background-image: url("../images/top-page-image2.jpeg");
 }
 
-.top-page-image-mobile {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.top-page-image {
-    display: none;
-}
 #hostel_image_2 {
     display: none;
 }
 
 #top-message {
+    font-weight: normal;
     text-align: center;
     width: 100%;
     font-size: 2.2em;
@@ -266,7 +265,7 @@ img {
 
 #overlay {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -347,7 +346,8 @@ body.no-scroll {
     width: 100%;
 }
 .select-hostel {
-    width: 100%;
+    color: #000000;
+    width: 101.1%;
     margin-left: auto !important;
     margin-right: auto !important;
 }
@@ -365,6 +365,8 @@ body.no-scroll {
 #bookingForm {
     display: block;
     max-width: 500px !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .datepicker {
@@ -372,8 +374,8 @@ body.no-scroll {
 }
 
 .booking-tittle {
+    text-align: center;
     font-size: 15px;
-    font-weight: bold;
 }
 
 label {
@@ -398,14 +400,20 @@ label {
   .ifta-label {
     font-weight: 500;
     font-size: 12px;
-    color: #000000;
+    color: #074d4d;
     margin-bottom:-30px;
     z-index:1;
     position:relative;
     padding: 10px 10px 10px 10px;
     pointer-events:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
   .ifta-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer !important;
     font-size: 15px;
     border:0;
@@ -426,6 +434,7 @@ label {
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.555);
     background-color: #3b6e70;
     cursor: pointer;
+    font-weight: normal;
   }
 
   /* Date picker */
@@ -457,7 +466,6 @@ label {
 .calendar {
     margin: 0.1rem;
     padding: 0.2rem;
-    border: 1px solid rgb(156, 156, 156);
     font-size: 1rem;
     width: 140%; /* Make each calendar take full width */
 }
@@ -479,18 +487,20 @@ label {
 }
 
 .next-month {
+    top: 0.3rem;
+    color: #000000;
     right: 1rem;
 }
 
 .prev-month {
+    top: 0.3rem;
+    color: #000000;
     left: 1rem;
 }
 
 /* Weekdays and days styling */
 .weekdays {
-    font-weight: bold;
-    color: white;
-    background-color: #797b7c;
+    color: rgb(0, 0, 0);
     margin: 0.5rem 0;
     border-radius: 0.5rem;
 }
@@ -574,6 +584,11 @@ label {
     position: relative;
     width: 100%;
     overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/home-message-background.jpg");
+    aspect-ratio: 1.5;
+    background-repeat: no-repeat;
 }
 #introduction_text {
     width: 100%;
@@ -613,33 +628,55 @@ label {
     width: 100%;
     text-align: center;
 }
-.width_33 {
-    width: 33.3%;
-}
-.width_50or33 {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.goto-3 {
+    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
     overflow: hidden;
 }
-.empty-33 {
-    width: 33.3%;
-    background-image: url("../images/best-hostel-in-cambodia.jpg");
+
+.width_50or33 {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1.5; 
+}
+
+.photo-front-page {
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    height: 0;
-}
-
-.destination-photo-mobile {
+    height: 100%;
     width: 100%;
-    height: auto;
-    display: block;
-    z-index: 1;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease-in-out;
 }
 
-.destination-photo {
-    display: none;
+.goto-siemreap {
+    background-image: url("../images/onederzsr-facilities.jpg");
+
 }
+
+.goto-phnompenh {
+    background-image: url("../images/go-to-phnom-penh-square.jpg");
+}
+
+.goto-kampot {
+    background-image: url("../images/go-to-kampot-square.jpg");
+}
+
+.goto-sihanoukville {
+    background-image: url("../images/go-to-sihanoukville.jpg");
+    background-position: center bottom;
+}
+
+.goto-kohrong {
+    background-image: url("../images/go-to-koh-rong-square.jpg");
+    background-position: center bottom;
+}
+
+.goto-kohrong-sanloem {
+    background-image: url("../images/go-to-koh-rong-sanloem-square.jpg");
+}
+
 
 .destination-bg {
     z-index: 1;
@@ -699,21 +736,62 @@ label {
 }
 
 /*WHO WE ARE*/
-#who-we-are-image {
-    top: 0;
-    position: absolute;
+.who-we-are-top-photo {
     background-size: cover;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem 0rem 0rem 2rem;
-    height: 100px;
-    font-size: 1.5em;
-    color: white;
+    background-repeat: no-repeat;
+    height: 200px;
+    background-position: center;
+    position: relative;
+    background-image: url("../images/who-we-are-top-large.jpg");
 }
 
-#who-we-are-image h2 {
-    text-shadow: 10px 10px 10px black;
+#who-we-are-image-0 {
+    background-image: url("../images/accomdation.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
 }
+
+#who-we-are-image-1 {
+    background-image: url("../images/room.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}
+
+#who-we-are-image-2 {
+    background-image: url("../images/ourservice.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}
+
+#who-we-are-image-3 {
+    background-image: url("../images/bathroom.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}
+#who-we-are-image-4 {
+    background-image: url("../images/lobby.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}
+
+#who-we-are-image-5 {
+    background-image: url("../images/building.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}
+
 .page-contents {
     overflow-x: hidden;
     display: block;
@@ -735,6 +813,7 @@ label {
     
 }
 .about-description h2 {
+    font-weight: normal;
     margin-bottom: 0.5rem;
     font-size: 1.2em;
 }
@@ -750,10 +829,16 @@ label {
 }
 
 #introduction_who_we_are {
-    display: flex;
-}
-#introduction_who_we_are h2{
     font-weight: normal;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding-left: 1rem;
+    color: white;
+    font-size: 2rem;
+    background-color: rgba(104, 103, 103, 0.705);
+    width: 100%;
+    overflow: hidden;
 }
 
 .page-contents-container {
@@ -768,10 +853,13 @@ label {
     margin-top: 5rem;
 }
 .page-contents-2 h2 {
+    font-weight: normal;
     margin-top: 1rem;
     font-size: 1.2em;
 }
 .page-contents-2 p {
+    padding-top: 1rem;
+    line-height: 2;
     margin-top: 1%;
     margin-bottom: 0;
     width: 100%;
@@ -779,6 +867,72 @@ label {
 }
 
 /*FOOTER*/
+footer {
+    background-color: #a7a7a7;
+}
+#footer {
+    display: flex;
+    position: relative;
+    display: block;
+    color: white;
+    height: 800px;
+    background-color: black;
+}
+
+.footerlogo {
+    position: absolute;
+    right: 2rem;
+    top: 1.2rem;
+    width: 120px;
+    height: 100px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../images/onederz-whitelogo.jpg");
+}
+
+.footer-section {
+    display: block;
+}
+
+.phone-des {
+    padding-left: 1rem;
+}
+
+.contact-name {
+    display: none;
+}
+
+.visitonederz {
+    padding: 1.5rem 0 0 2rem;
+}
+.visitonederz-contact {
+    padding: 1.5rem 0 0 0;
+}
+.visitonederz-contact p {
+    margin: 0;
+    line-height: 2;
+    padding-left: 2rem;
+}
+.visitonederz-contact h3 {
+    margin: 0;
+    color: #a7a7a7;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+}
+.visitonederz p {
+    margin: 0;
+    line-height: 2;
+}
+.visitonederz h3 {
+    margin: 0;
+    color: #a7a7a7;
+    padding-bottom: 1rem;
+}
+.visitonederz a {
+    text-decoration: none;
+    color: white;
+}
+
 .footer {
     height: 120px;
     position: relative;

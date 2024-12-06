@@ -27,8 +27,10 @@ body {
     margin-right: auto;
     max-width: 100%;
     position: fixed;
-    z-index: 5;
-    background-color: white;
+    z-index: 6;
+    background: rgba(255, 255, 255, 0.808);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     opacity: 0.9;
 }
 #main_logo {
@@ -219,7 +221,7 @@ li.menu__single_3:hover ul.menu__second-level {
     height: 24px;
     padding-top: 3px;
     padding-left: 10px;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     color: white;
     margin-top: -60px;
     clear: both;
@@ -238,6 +240,7 @@ li.menu__single_3:hover ul.menu__second-level {
 /*CONTENTS*/
 
 #background {
+    overflow-x: hidden;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -247,39 +250,34 @@ li.menu__single_3:hover ul.menu__second-level {
 }
 
 #top-page-image {
-    z-index: 1;
-    width: 100%;
+    background-repeat: no-repeat;
+    aspect-ratio: 2;
     position: relative;
-    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/top-page-image-1.jpg");
 }
 
-.top-page-image-mobile {
-    display: none;
-}
 
 /* Booking form */
 
 #overlay {
     position: relative;
     margin-top: -10rem;
-    z-index: 5;
+    z-index: 4;
 }
 .container-form {
     z-index: 5 !important;
-    margin-top: -3rem;
     border-radius: 0.5rem;
-    padding: 0.5rem 2rem 0.5rem 1rem;
+    padding: 0.5rem 2rem 0.5rem 1.5rem;
     justify-content: center;
     align-items: center;
-    max-width: 870px;
+    max-width: 840px;
     margin-left: auto;
     margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.582);
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(5px) saturate(180%);
-    background-color: #ffffff88;
-    border: 1px solid rgba(209, 213, 219, 0.164);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-
 }
 
 .totalguest {
@@ -301,13 +299,16 @@ li.menu__single_3:hover ul.menu__second-level {
 #bookingForm {
     display: flex;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .booking-tittle {
-    color: #262e36;
-    padding: 0.5rem 0 0.7rem 0.5rem;
-    font-size: 22px;
-    font-weight: bold;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    padding: 0.5rem 0 0.2rem 0.5rem;
+    font-size: 20px;
 }
 
 label {
@@ -330,6 +331,9 @@ label {
   }
   
   .ifta-label {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     text-align: left;
     font-weight: 500;
     font-size: 12px;
@@ -337,16 +341,19 @@ label {
     margin-bottom:-30px;
     z-index:1;
     position:relative;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 10px 10px 15px;
     pointer-events:none;
   }
   .ifta-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer !important;
     font-size: 15px;
     border:0;
     border-radius:6px;
-    padding: 35px 5px 15px 5px;
-    margin: 0px 0px 0px 15px;
+    padding: 35px 5px 15px 10px;
+    margin: 0px 0px 0px 5px;
     box-shadow:inset 0 0 0 1px #ccc;
   }
   .ifta-field:focus {
@@ -365,13 +372,17 @@ label {
     font-size: 1.2rem;
     border-radius: 0.5rem;
     color: white;
-    margin: 9px 0 10px 10px;
+    margin: 16px 0 10px 5px;
     width: 150px;
-    height: 65px;
+    height: 67px;
     border: none;
     background-color: #3b6e70;
     cursor: pointer;
   }
+
+  .booking-mobile-btn {
+    display: none;
+}
   /* Date picker */
   .calendar-container {
     display: none; /* Hide by default */
@@ -379,9 +390,9 @@ label {
     top: 100%; /* Position below the input field */
     left: 50%;
     transform: translateX(-50%);
-    border: 1px solid #ccc;
-    background-color: #fff;
-    padding: 10px;
+    border: 1px solid #d1d1d1;
+    background-color: #ffffff;
+    padding: 0px;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -390,7 +401,6 @@ label {
 /* Style for the calendar itself */
 .calendar {
     text-align: center;
-    border: 1px solid #ddd;
     padding: 10px;
     box-sizing: border-box; /* Ensure padding doesn’t affect width */
 }
@@ -400,7 +410,6 @@ label {
     font-weight: bold;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* Position nav buttons relative to header */
 }
 
 /* Navigation buttons styling */
@@ -412,20 +421,25 @@ label {
 }
 
 .next-month {
+    top: 0.75rem;
+    font-size: 15px;
     right: 1rem;
+    position: absolute;
 }
 
 .prev-month {
+    top: 0.75rem;
+    font-size: 15px;
+    position: absolute;
     left: 1rem;
+    display: none;
 }
+
 
 /* Weekdays and days styling */
 .weekdays {
-    font-weight: bold;
-    color: white;
-    background-color: #797b7c;
+    color: rgb(2, 41, 63);
     margin: 0.5rem 0;
-    border-radius: 0.5rem;
 }
 
 .weekdays, .days {
@@ -446,6 +460,13 @@ label {
 
 .days div.disabled {
     color: #ccc;
+}
+
+.selected-date {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    background-color: #526f91;
+    color: white;
 }
 
 .days div.start-date {
@@ -470,6 +491,10 @@ label {
     display: flex;
 }
 
+.in-range-hover {
+    background-color: #c6e5e9;
+}
+
 .page2 {
     position: relative;
     display: flex;
@@ -479,7 +504,11 @@ label {
 
 #hostel_image_2 {
     width: 33.4%;
-    height: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/best-hostel-in-cambodia-2024.jpg");
 
 }
 #hostel_image_3 {
@@ -487,6 +516,7 @@ label {
     width: 66.60%;
 }
 #top-message {
+    font-weight: normal;
     text-align: center;
     width: 100%;
     font-size: 5em;
@@ -499,26 +529,18 @@ label {
     color: white;
 }
 
-#top-message {
-    overflow: hidden; /* Hides text overflow */
-    white-space: nowrap; /* Prevents wrapping */
-    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
-}
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
 
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: orange; }
-}
 /*INTRODUCTION*/ 
 
 #introduction{
     position: relative;
     width: 100%;
     overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/home-message-background.jpg");
+    aspect-ratio: 2;
+    background-repeat: no-repeat;
 }
 #introduction_text {
     width: 100%;
@@ -569,57 +591,61 @@ label {
 .goto-3 {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .width_50or33 {
     position: relative;
-    flex: 1 1 33.33%; /* Default to 3 items per row */
+    flex: 1 1 calc(33.33% - 10px);
     overflow: hidden;
+    aspect-ratio: 1; 
+}
+
+.photo-front-page {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+.goto-siemreap {
+    background-image: url("../images/onederzsr-facilities.jpg");
+
+}
+
+.goto-phnompenh {
+    background-image: url("../images/go-to-phnom-penh-square.jpg");
+}
+
+.goto-kampot {
+    background-image: url("../images/go-to-kampot-square.jpg");
+}
+
+.goto-sihanoukville {
+    background-image: url("../images/go-to-sihanoukville.jpg");
+}
+
+.goto-kohrong {
+    background-image: url("../images/go-to-koh-rong-square.jpg");
+}
+
+.goto-kohrong-sanloem {
+    background-image: url("../images/go-to-koh-rong-sanloem-square.jpg");
+}
+
+.photo-front-page:hover {
+    transform: scale(1.1);
 }
 
 .width_33 {
     width: 33.3%;
 }
 
-.empty-33 {
-    width: 33.3%;
-    background-image: url("../images/go-to-phnom-penh-onederz.jpg");    
-    background-size: cover;
-    height: 0;
-}
-.destination-photo {
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease-in-out;
-}
-
-.destination-photo-mobile {
-    display: none;
-}
-
-.width_50or33:hover .destination-photo {
-    transform: scale(1.1);
-}
-
-#goto-sihanoukville-photo {
-    width: 100%;
-    background-image: url("../images/go-to-sihanoukville.jpg");
-    background-size: cover;
-    height: 0;
-}
-#goto-koh-rong-samloem-photo {
-    width: 100%;
-    background-image: url("../images/go-to-koh-rong-sanloem-square.jpg");
-    background-size: cover;
-    height: 0;
-}
-#goto-koh-rong-photo {
-    width: 100%;
-    background-image: url("../images/go-to-koh-rong-square.jpg");
-    background-size: cover;
-    height: 0;
-}
 .destination-bg {
     z-index: 1;
     height: 32%;
@@ -678,19 +704,54 @@ img {
 
 /*WHO WE ARE*/
 
-#who-we-are-image {
+.who-we-are-top-photo {
     background-size: cover;
-    background-image: url(/images/who-we-are-top-large.jpg);
-    margin-left: auto;
-    margin-right: auto;
-    padding: 4rem 0rem 0rem 2rem;
-    height: 100px;
-    font-size: 3rem;
-    color: white;
+    background-repeat: no-repeat;
+    height: 500px;
+    position: relative;
+    background-image: url("../images/who-we-are-top-large.jpg");
 }
 
-#who-we-are-image h2 {
-    text-shadow: 10px 10px 10px black;
+#who-we-are-image-0 {
+    background-image: url("../images/accomdation.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+#who-we-are-image-1 {
+    background-image: url("../images/room.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+#who-we-are-image-2 {
+    background-image: url("../images/ourservice.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+#who-we-are-image-3 {
+    background-image: url("../images/bathroom.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+#who-we-are-image-4 {
+    background-image: url("../images/lobby.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+#who-we-are-image-5 {
+    background-image: url("../images/building.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 600px;
 }
 .page-contents {
     overflow-x: hidden;
@@ -707,16 +768,19 @@ img {
 }
 
 .about-description {
+    width: 60%;
     padding: 1rem;
     transform: translateX(100px); /* Initial position */
     transition: transform 0.5s ease-out; /* Move-in transition */
     
 }
 .about-description h2 {
+    font-weight: normal;
     margin-bottom: 0.5rem;
 }
 .about-description p {
-    line-height: 1.7;
+    font-size: 1.1em;
+    line-height: 1.9;
 }
 .about-cover {
     max-width: 1200px;
@@ -726,11 +790,21 @@ img {
     padding: 1rem;
 }
 
-#introduction_who_we_are {
-    display: flex;
-}
-#introduction_who_we_are h2{
+.about-cover h2{
     font-weight: normal;
+}
+
+
+#introduction_who_we_are {
+    font-weight: normal;
+    position: absolute;
+    bottom: 0;
+    padding-left: 3rem;
+    color: white;
+    font-size: 3rem;
+    background-color: rgba(104, 103, 103, 0.705);
+    width: 100%;
+    overflow: hidden;
 }
 
 .page-contents-container {
@@ -748,6 +822,7 @@ img {
     margin-top: 3rem;
 }
 .page-contents-2 p {
+    line-height: 2;
     margin-top: 1%;
     margin-bottom: 0;
     width: 100%;
@@ -757,6 +832,64 @@ img {
 /*OFFERS*/ 
 
 /*FOOTER*/
+footer {
+    background-color: #a7a7a7;
+}
+
+#footer {
+    position: relative;
+    display: flex;
+    color: white;
+    height: 300px;
+    background-color: black;
+}
+.footerlogo {
+    margin-top: 7rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    width: 200px;
+    height: 100px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("../images/onederz-whitelogo.jpg");
+}
+
+.footer-section {
+    display: flex;
+    min-width: 200px;
+}
+
+.visitonederz {
+    padding: 1.5rem 0 0 2rem;
+}
+.visitonederz-contact {
+    padding: 1.5rem 0 0 2rem;
+}
+.visitonederz-contact p {
+    line-height: 2;
+    padding-left: 5rem;
+}
+.visitonederz-contact h3 {
+    color: #a7a7a7;
+    padding-bottom: 1rem;
+    padding-left: 5rem;
+}
+.visitonederz p {
+    line-height: 2;
+}
+.visitonederz h3 {
+    color: #a7a7a7;
+    padding-bottom: 1rem;
+}
+.visitonederz a {
+    text-decoration: none;
+    color: white;
+}
+
+.phone-des {
+    display: none;
+}
+
 .footer {
     position: relative;
     display: flex;
@@ -850,7 +983,7 @@ img {
     color:#B0B0B0; text-decoration:none
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1286px) {
     .destination-bg {
         height: 25%;
     }
@@ -858,3 +991,19 @@ img {
         padding: 0.5rem;
     }
 }
+
+@media only screen and (max-width: 1285px) {
+.footerlogo {
+    margin-top: 7rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    width: 100px;
+    height: 100px; 
+}
+}
+
+@media only screen and (max-width: 1150px) {
+    .footerlogo {
+        display: none;
+    }
+    }

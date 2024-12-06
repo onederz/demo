@@ -668,15 +668,17 @@ img {
 }
 
 #top-photo-siem-reap {
-    position: relative;
-}
-.top-photo-siem-reap {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.329);
-    height: 98%;
     width: 100%;
+    height: 700px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-image: url("../images/siem-reap-top-photo-1200-480.webp");
+    background-position: center;
+    background-size: cover;
 }
+
 #top-photo-siem-reap h1 {
+    font-weight: normal;
     position: absolute;
     top: 5rem;
     left: 2.5rem;
@@ -761,8 +763,8 @@ img {
 
 #overlay {
     position: relative;
-    margin-top: -10rem;
-    z-index: 4;
+    margin-top: -12rem;
+    z-index: 5;
 }
 .container-form {
     z-index: 5 !important;
@@ -770,9 +772,12 @@ img {
     padding: 0.5rem 2rem 0.5rem 1rem;
     justify-content: center;
     align-items: center;
-    max-width: 840px;
+    max-width: 755px;
     margin-left: auto;
     margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.582);
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
 }
 
 .totalguest {
@@ -784,22 +789,26 @@ img {
 }
 
 .select-hostel {
-    width: 250px;
+    width: 200px;
 }
 
 .select-date {
-    width: 200px;
+    width: 180px;
 }
 
 #bookingForm {
     display: flex;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .booking-tittle {
-    color: #ffffff;
-    padding: 0.5rem 0 0.7rem 0.5rem;
-    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    padding: 0.5rem 0 0.2rem 0.5rem;
+    font-size: 19px;
 }
 
 label {
@@ -822,6 +831,9 @@ label {
   }
   
   .ifta-label {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     text-align: left;
     font-weight: 500;
     font-size: 12px;
@@ -833,11 +845,14 @@ label {
     pointer-events:none;
   }
   .ifta-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer !important;
     font-size: 15px;
     border:0;
     border-radius:6px;
-    padding: 35px 5px 15px 10px;
+    padding: 30px 5px 10px 10px;
     margin: 0px 0px 0px 5px;
     box-shadow:inset 0 0 0 1px #ccc;
   }
@@ -857,9 +872,9 @@ label {
     font-size: 1.2rem;
     border-radius: 0.5rem;
     color: white;
-    margin: 6px 0 10px 5px;
-    width: 150px;
-    height: 68px;
+    margin: 5px 0 1px 5px;
+    width: 120px;
+    height: 58px;
     border: none;
     background-color: #3b6e70;
     cursor: pointer;
@@ -882,7 +897,6 @@ label {
 /* Style for the calendar itself */
 .calendar {
     text-align: center;
-    border: 1px solid #ddd;
     padding: 10px;
     box-sizing: border-box; /* Ensure padding doesn’t affect width */
 }
@@ -892,7 +906,6 @@ label {
     font-weight: bold;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* Position nav buttons relative to header */
 }
 
 /* Navigation buttons styling */
@@ -904,20 +917,23 @@ label {
 }
 
 .next-month {
+    font-size: 15px;
     right: 1rem;
+    position: absolute;
 }
 
 .prev-month {
+    font-size: 15px;
+    position: absolute;
     left: 1rem;
+    display: none;
 }
+
 
 /* Weekdays and days styling */
 .weekdays {
-    font-weight: bold;
-    color: white;
-    background-color: #797b7c;
+    color: rgb(2, 41, 63);
     margin: 0.5rem 0;
-    border-radius: 0.5rem;
 }
 
 .weekdays, .days {
@@ -940,6 +956,13 @@ label {
     color: #ccc;
 }
 
+.selected-date {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    background-color: #526f91;
+    color: white;
+}
+
 .days div.start-date {
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
@@ -960,6 +983,10 @@ label {
 
 .datepicker {
     display: flex;
+}
+
+.in-range-hover {
+    background-color: #c6e5e9;
 }
 
 /*PAGE CONTENTS SIEM REAP*/
