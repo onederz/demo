@@ -1,8 +1,8 @@
 const swiper1 = new Swiper('.swiper1', {
-    // Optional parameters
     loop: true,
-    slidesPerView: 1,  // Default value
-    spaceBetween: 10,     // Space between slides
+    slidesPerView: 1.2,
+    spaceBetween: 0,
+    centeredSlides: true,
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -12,22 +12,56 @@ const swiper1 = new Swiper('.swiper1', {
         prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-        // When window width is >= 800px
-        600: {
-            slidesPerView: 3, // Set slidesPerView to 1 for max-width 800px
+        550: {
+            slidesPerView: 1.5,
+            spaceBetween: 10,
+            centeredSlides: false,
         },
-        801: {
-            slidesPerView: 3.2, // Ensure it's 3.2 or more for widths >= 1200px
+        700: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            centeredSlides: false,
+        },
+        1001: {
+            slidesPerView: 3.2,
+            spaceBetween: 10,
+            centeredSlides: true,
         },
     },
-    // Add any additional settings here
+    on: {
+        slideChange: function () {
+            if (window.innerWidth < 550) {
+                this.slides.forEach(slide => {
+                    slide.style.opacity = '0.3';
+                    slide.style.transform = 'scale(0.9)';
+                    slide.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+                });
+
+                const activeSlide = this.slides[this.activeIndex];
+                if (activeSlide) {
+                    activeSlide.style.opacity = '1';
+                    activeSlide.style.transform = 'scale(1)';
+                }
+            } else {
+                this.slides.forEach(slide => {
+                    slide.style.opacity = '1';
+                    slide.style.transform = 'scale(1)';
+                    slide.style.transition = 'none';
+                });
+            }
+        },
+    },
 });
 
+
+
+
 const swiper2 = new Swiper('.swiper2', {
-    // Optional parameters
+
     loop: true,
-    slidesPerView: 1,  // Default value
-    spaceBetween: 10,     // Space between slides
+    slidesPerView: 1.2,
+    spaceBetween: 0,
+    centeredSlides: true,
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -37,21 +71,51 @@ const swiper2 = new Swiper('.swiper2', {
         prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-        // When window width is >= 800px
-        600: {
-            slidesPerView: 3, // Set slidesPerView to 1 for max-width 800px
+        550: {
+            slidesPerView: 2,
+            spaceBetween: 10,
         },
-        801: {
-            slidesPerView: 3.2, // Ensure it's 3.2 or more for widths >= 1200px
+        700: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            centeredSlides: false,
+
+        },
+        1001: {
+            slidesPerView: 3.2,
+            spaceBetween: 10,
+            centeredSlides: true,
         },
     },
-    // Add any additional settings here
+    on: {
+        slideChange: function () {
+            if (window.innerWidth < 700) {
+                this.slides.forEach(slide => {
+                    slide.style.opacity = '0.3';
+                    slide.style.transform = 'scale(0.9)';
+                    slide.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+                });
+
+                const activeSlide = this.slides[this.activeIndex];
+                if (activeSlide) {
+                    activeSlide.style.opacity = '1';
+                    activeSlide.style.transform = 'scale(1)';
+                }
+            } else {
+                this.slides.forEach(slide => {
+                    slide.style.opacity = '1';
+                    slide.style.transform = 'scale(1)';
+                    slide.style.transition = 'none';
+                });
+            }
+        },
+    },
 });
 
 
 const swiper3 = new Swiper('.swiper3', {
-    loop: true,
-    slidesPerView: 1,
+    loop: false,  // Set to false to disable looping
+    slidesPerView: 1.1,
     spaceBetween: 0,
     pagination: {
         el: '.swiper-pagination',
@@ -60,6 +124,38 @@ const swiper3 = new Swiper('.swiper3', {
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
+    },
+    on: {
+        // Triggered when the Swiper instance is initialized
+        init: function () {
+            // Manually apply styles to the initial slide
+            this.slides.forEach((slide, index) => {
+                // Set opacity and scale for all slides on initialization
+                if (index === this.activeIndex) {
+                    slide.style.opacity = '1'; 
+                    slide.style.transform = 'scale(0.95)';
+                } else {
+                    slide.style.opacity = '0.2'; 
+                    slide.style.transform = 'scale(1)';
+                }
+                slide.style.transition = 'transform 0.3s ease, opacity 0.3s ease'; 
+            });
+        },
+        slideChange: function () {
+            // Reset all slides
+            this.slides.forEach(slide => {
+                slide.style.opacity = '0.2'; 
+                slide.style.transform = 'scale(1)'; 
+                slide.style.transition = 'transform 0.3s ease, opacity 0.3s ease'; 
+            });
+
+            // Highlight the active slide
+            const activeSlide = this.slides[this.activeIndex];
+            if (activeSlide) {
+                activeSlide.style.opacity = '1'; 
+                activeSlide.style.transform = 'scale(0.95)'; 
+            }
+        },
     },
 });
 
