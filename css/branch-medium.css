@@ -253,6 +253,10 @@ body {
     margin-bottom: 5px;
 }
 
+#introduction-message-1-mobile {
+    display: none;
+}
+
 #introduction-siem-reap{
     width: 50%;
     max-height: 100%;
@@ -879,6 +883,9 @@ label {
     background-color: #3b6e70;
     cursor: pointer;
   }
+  .booking-mobile-btn {
+    display: none;
+}
   /* Date picker */
   .calendar-container {
     display: none; /* Hide by default */

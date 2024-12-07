@@ -200,6 +200,9 @@ body {
     width: 70%;
     padding-left: 1rem;
 }
+#introduction-message-1-mobile {
+    display: none;
+}
 #introduction h2 {
     font-size: 1.2em;
     margin-bottom: 0;

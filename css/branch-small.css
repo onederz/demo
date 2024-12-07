@@ -8,6 +8,10 @@ body {
 .navigation_large {
     display: none;
 }
+* {
+    box-sizing: border-box;
+}
+
 #header{
     border-radius: 5px;
     height: 20px;
@@ -43,6 +47,7 @@ img {
     background-color: white;
     z-index: 10;
     opacity: 0.9;
+    box-shadow: 0px 0px 5px 0px #000000;
 }
 #main_logo_small {
     margin: 0.5rem 0 0.5rem 0.5rem;
@@ -59,7 +64,7 @@ img {
     width: 100%;
     display: block;
     margin: 0;
-    background: black;
+    background: rgb(20, 20, 20);
     border-bottom: solid dimgray 1px;
 }
 #menu li a {
@@ -190,20 +195,21 @@ img {
     position: relative; 
 }
 
+/* Disable scrolling */
 body.no-scroll {
     overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
 }
+
 #background.no-scroll {
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    filter: blur(3px);
+    filter: blur(5px);
+    transition: filter 0.3s ease-in-out;
 }
+
+.closing {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
 
 .contents-top {
     width: 1200px;
@@ -243,10 +249,11 @@ body.no-scroll {
     height: 0;
     padding-top: 62%;
 }
-#top-photo-siem-reap {
+
+.top-photo-branch {
     z-index: 1;
     width: 100%;
-    aspect-ratio: 1.3;
+    aspect-ratio: 0.75;
     position: relative;
     background-repeat: no-repeat;
     background-image: url("../images/siem-reap-top-photo-1200-480.jpg");
@@ -254,22 +261,31 @@ body.no-scroll {
     background-size: cover;
 }
 
+#top-photo-siem-reap {
+    background-image: url("../images/siem-reap-top-photo-1200-480.jpg");
+}
 
-#top-photo-siem-reap h1 {
+@media only screen and (min-width: 500px) {
+    #top-photo-siem-reap {
+        aspect-ratio: 1; 
+    }
+}
+
+
+.top-photo-branch h1 {
     font-weight: 600;
     position: absolute;
     top: 3rem;
-    left: 0.5rem;
+    width: 100%;
+    text-align: center;
     font-size: 1.5em;
     color: #ffffff;
+    text-shadow: 1px 1px 0.5px #2e2e2e62;
 }
 #top-photo-phnom-penh {
-    width: 100%;
-    background-image: url("../images/go-to-phnom-penh.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 62%;
+    background-image: url("../phnom-penh/phnom-penh-img/phnom-penh-top-image.jpg");
 }
+
 #top-photo-sihanoukville {
     width: 100%;
     background-image: url("../images/sihanoukville-top-mobile.jpg");
@@ -293,20 +309,44 @@ body.no-scroll {
 }
 
 .booking-mobile-btn {
-    font-size: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
     font-weight: bold;
     position: fixed;
     z-index: 4000;
-    padding: 1rem 0 0 0;
-    width: 80%;
-    height: 45px;
+    width: 100%;
+    height: 70px;
     border-radius: 1rem;
-    background-color: #3b6e70;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.712);
-    text-align: center;
+    background-color: #044444d5;
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.712);
     left: 50%;
-    bottom: 0.2rem;
+    bottom: 1rem;
     transform: translateX(-50%);
+}
+
+.text-mobile-btn {
+    font-size: 0.9em;
+    color: rgb(255, 255, 255);
+    padding: 0.5rem;
+    width: 65%;
+    text-align: center;
+}
+.booking-for-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-right: 0.2rem;
+    text-align: center;
+    border-radius: 1rem;
+    width: 35%;
+    height: 60px;
+    background-color: #3b6e70;
+    border: 1px solid white;
 }
 
 #overlay {
@@ -316,29 +356,19 @@ body.no-scroll {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999 !important;
+    background-color: rgba(32, 32, 32, 0.726);
+    animation: backround-overlay 0.3s ease;
 }
 
-body.no-scroll {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
+@keyframes backround-overlay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
-
-#background.no-scroll {
-    filter: blur(3px);
-    pointer-events: none;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100svh;
-    top: 0;
-    left: 0;
-}
-
 
 
 /* Form Container style */
@@ -357,7 +387,7 @@ body.no-scroll {
 
 #container-form.show {
     display: block;
-    animation: move-top 1s ease;
+    animation: move-top 0.5s ease;
 }
 
 @keyframes move-top {
@@ -374,13 +404,15 @@ body.no-scroll {
         transform: translateY(0);
     }
     to {
-        transform: translateY(500px);
+        transform: translateY(600px);
     }
 }
 
 #container-form.closing {
-    animation: move-bottom 1.2s ease-out;
+    animation: move-bottom 0.5s ease-out;
+    animation-fill-mode: forwards;
 }
+
  
 .container-form {
     padding: 1rem;
@@ -393,13 +425,13 @@ body.no-scroll {
 }
 .select-hostel {
     color: #000000;
-    width: 101.1%;
+    width: 100%;
     margin-left: auto !important;
     margin-right: auto !important;
 }
 
 .select-date {
-    width: 97.3%;
+    width: 100%;
     margin-left: auto !important;
     margin-right: auto !important;
 }
@@ -422,6 +454,7 @@ body.no-scroll {
 .booking-tittle {
     text-align: center;
     font-size: 15px;
+    display: none;
 }
 
 label {
@@ -494,7 +527,7 @@ label {
     transform: translateX(-50%); /* Remove horizontal centering */
     border: 1px solid #ccc;
     background-color: #fff;
-    padding: 10px;
+    padding: 0px;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -512,12 +545,14 @@ label {
 .calendar {
     margin: 0.1rem;
     padding: 0.2rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     width: 140%; /* Make each calendar take full width */
 }
 
 /* Header styling */
 .header {
+    padding-top: 0.4rem;
+    height: 30px;
     font-weight: bold;
     justify-content: space-between;
     align-items: center;
@@ -765,6 +800,8 @@ label {
     background-size: cover;
     background-repeat: no-repeat;
     aspect-ratio: 1.5;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #bed4-dorm {
@@ -819,10 +856,11 @@ label {
 .swiper2 h4 {
 
     font-weight: 600;
-    padding: 0rem 0rem 0rem 0.2rem;
+    padding: 0rem 0.5rem 0rem 1rem;
 }
 .swiper2 p{
-    padding: 0rem 0rem 0rem 0.2rem;
+    padding: 0rem 0.5rem 0rem 1rem;
+    height: 230px;
 }
 
 .room-line h1 {
@@ -847,7 +885,15 @@ label {
 }
 
 .room-desripe h4 {
-    font-size: 0.92em;
+    font-size: 0.95em;
+}
+
+.swiper1 .swiper-wrapper {
+    margin-bottom: 3rem;
+}
+
+.swiper2 .swiper-wrapper {
+    margin-bottom: 3rem;
 }
 
 .swiper-wrapper {
@@ -879,9 +925,8 @@ label {
 
 .room-description {
     position: relative;
-    color: rgb(255, 255, 255);
-    background: rgb(87,87,87);
-    background: linear-gradient(90deg, rgb(168, 168, 168) 0%, rgba(210,210,210,1) 87%, rgba(255,255,255,1) 100%);
+    color: rgb(0, 0, 0);
+
     width: 100%;
     height: 80px;
 }
@@ -895,7 +940,7 @@ label {
     font-size: 1.2em;
     font-weight: normal;
     margin: 0;
-    padding-top: 0.2rem;
+    padding-top: 0.4rem;
     padding-left: 0.5rem;
 }
 
@@ -906,13 +951,19 @@ label {
 }
 #check-availaility a p{
     margin: 0;
+    padding: 0;
     color: white;
 }
 .check-availaility {
+    display: flex;
     font-size: 0.8em;
-    padding: 0.3rem 0.5rem 0.5rem 0;
+    height: 35px;
+    width: 150px;
+    border-radius: 10px;
     border: 1px solid white;
     background-color: #00000081;
+    align-items: center;
+    justify-content: center;
 }
 
 #readMoreBtn1, #readLessBtn1, #readMoreBtn2, #readLessBtn2 {
@@ -923,6 +974,7 @@ label {
     margin: 0;
     padding: 0;
     color: #000000;
+    font-size: 1em;
 }
 
 /*Facilities/services*/
@@ -944,12 +996,12 @@ label {
 .facilities-services-2 {
     width: 100%;
     text-align: left;
-    font-size: 0.92em;
+    font-size: 0.95em;
 }
 
 .facilities-services div {
     margin: 0.5rem;
-    font-size: 0.85em;
+    font-size: 1em;
 }
 .fac-row {
     display: flex;
@@ -960,6 +1012,17 @@ label {
 .fac-row p{
     margin: 0;
     padding: 0;
+}
+
+.fac-border {
+    border: 1px solid rgba(77, 77, 77, 0.171);
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px rgba(80, 80, 80, 0.322);
+}
+
+.fac-border p{
+    padding-bottom: 1rem;
 }
 
 @media only screen and (min-width: 500px) {
@@ -978,6 +1041,8 @@ label {
 .facilities-photo {
     aspect-ratio: 2;
     background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #facility-pool {
@@ -1011,7 +1076,7 @@ label {
     padding-top: 2rem;
     width: 100%;
     text-align: center;
-    font-size: 0.92em;
+    font-size: 0.95em;
 }
 
 .siem-reap-exp-photo {
@@ -1019,6 +1084,8 @@ label {
     background-position: center;
     background-repeat: no-repeat;
     aspect-ratio: 2;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #small-circuit {
@@ -1054,8 +1121,8 @@ label {
 
 #location {
     padding-top: 2rem;
-    padding-bottom: 5rem;
-    font-size: 0.92em;
+    padding-bottom: 8rem;
+    font-size: 0.95em;
 }
 .location {
     display: block;
@@ -1109,12 +1176,10 @@ label {
 }
 #introduction h2 {
     font-size: 1em;
-    padding: 0 1rem 0 1rem;
+    padding: 0 0rem 0 1rem;
     margin: 0;
 }
-#introduction p {
-    font-size: 0.92em;
-}
+
 #introduction_message {
     font-size: 1em;
     padding-top: 2%;
@@ -1123,20 +1188,53 @@ label {
     padding-right: 2%;
     text-align: left; 
 }
+
+#introduction {
+    background-color: #e4e4e49f;
+    padding: 0.5rem 0 0.5rem 0;
+    margin: 0rem 0 1rem 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+
+
 #introduction-message-1 {
     padding: 0 1rem 0 1rem;
-    margin-top: 0.5rem;
+    margin-top: 0rem;
     text-align: left;
+    display: none;
+}
+#introduction-message-1-mobile {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem 0rem 1rem 0rem;
+    margin: 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.5;
+    background-color: #4444449f;
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
 }
 #introduction-message-2 {
     padding: 0 1rem 0 1rem;
-    margin-top: 0.5rem;
+    margin-top: 0rem;
     text-align: left;
+    font-size: 0.95em;
 }
 #introduction-message-3 {
-    padding: 0 1rem 0 1rem;
-    margin-top: 0.5rem;
+    padding: 0 0.5rem 0 1rem;
+    margin-top: 0rem;
     text-align: left;
+    font-size: 0.95em;
 }
 
 #mobile-contents {
