@@ -95,23 +95,24 @@ $(function(){
 })
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     // Toggle main menu visibility
-    $("#humburger_icon").click(function() {
-        $("#menu").slideToggle(); // Slide open/close
-        $("#background").toggleClass('no-scroll'); // Toggle no-scroll class
+    $("#humburger_icon").click(function () {
+        $("#menu").slideToggle(); // Slide open/close main menu
+        $("body").toggleClass("no-scroll", $("#menu").is(":visible")); // Toggle no-scroll based on menu visibility
         return false;
     });
 
     // Function to toggle submenus
     function toggleSubMenu(triggerId, submenuId) {
-        $(triggerId).click(function() {
+        $(triggerId).click(function (event) {
+            event.stopPropagation(); // Prevent click from propagating
             var $targetMenu = $(submenuId);
             if ($targetMenu.is(":visible")) {
-                $targetMenu.slideUp(); // Slide up if visible
+                $targetMenu.slideUp(); // Hide submenu if visible
             } else {
                 closeAllSubMenus(); // Close other submenus
-                $targetMenu.slideDown(); // Slide down to show submenu
+                $targetMenu.slideDown(); // Show the current submenu
             }
             return false;
         });
@@ -119,37 +120,38 @@ $(document).ready(function() {
 
     // Initialize submenus
     toggleSubMenu("#open_whereweare_secondlevel_small", "#whereweare_secondlevel_small");
-    toggleSubMenu("#open_contact_secondlevel_small", "#contact_secondlevel_small");
     toggleSubMenu("#open_booking_secondlevel_small", "#booking_secondlevel_small");
 
     // Close all menus and submenus when clicking outside
-    $(document).click(function(event) {
-        if (!$(event.target).closest('#menu, #humburger_icon').length) {
-            closeAllMenus(); // Slide up all open submenus and hide main menu
+    $(document).click(function (event) {
+        if (!$(event.target).closest("#menu, #humburger_icon").length) {
+            closeAllMenus(); // Close everything
         }
     });
 
     // Prevent closing the menu when clicking inside
-    $('#menu').click(function(event) {
+    $("#menu").click(function (event) {
         event.stopPropagation(); // Prevent event bubbling
     });
 
     // Close all submenus
     function closeAllSubMenus() {
-        $("#whereweare_secondlevel_small, #contact_secondlevel_small, #booking_secondlevel_small").slideUp(); // Slide up all submenus
+        $("#whereweare_secondlevel_small, #booking_secondlevel_small").slideUp(); // Close all submenus
     }
 
     // Close the main menu and hide submenus when an <li> is clicked
-    $('#menu li').click(function(event) {
-        $('#menu').hide(); // Hide the entire menu
+    $("#menu li").click(function (event) {
+        $("#menu").hide(); // Hide the main menu
+        closeAllSubMenus(); // Close submenus
+        $("body").removeClass("no-scroll"); // Remove no-scroll
         event.stopPropagation(); // Prevent event bubbling
     });
 
     // Function to close all menus
     function closeAllMenus() {
-        $('#menu').slideUp(); // Slide up the main menu
+        $("#menu").slideUp(); // Hide the main menu
         closeAllSubMenus(); // Close all submenus
-        $("#background").removeClass('no-scroll'); // Remove no-scroll class
+        $("body").removeClass("no-scroll"); // Remove no-scroll
     }
 });
 
