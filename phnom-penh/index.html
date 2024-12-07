@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Onederz Hostel Phnom Penh | The hostel features rooftop swimming pool with amazing river view. We offer comfortable private rooms and dormitory beds</title>
+        <link rel="icon" type="image/png" href="../images/logo.png">
         
 <!-- *** Style Sheet *** -->
         <meta name="description" content="Onederz Hostel Siem Reap was awarded as the best hostel in Cambodia and 7th best large hostel in the world by HostelWorld."/>
@@ -52,10 +53,15 @@
         </div>
     </div>
     <div id="background">
-    <div id="top-photo-siem-reap">
-        <div class="top-photo-siem-reap"></div>
-        <img src="phnom-penh-img/phnom-penh-top-image.jpg" alt="" class="top-photo-siem-reap2">
+    <div id="top-photo-phnom-penh" class="top-photo-branch">
         <h1>Onederz Hostel Phnom Penh</h1>
+        <p id="introduction-message-1-mobile"><strong style="color: white; font-size: 1em;">WELCOME TO ONEDERZ PHNOM PENH</strong>
+            <font style="font-size: 0.90em;">
+            <br>
+            The hostel with rooftop face to the riverside 
+            <br>
+            
+            <br>from </font></p>
     </div>
     <div class="booking-mobile-btn"><a href="#container-form">BOOK NOW</a></div>
     <div id="overlay">
@@ -91,8 +97,11 @@
             <input class="ifta-field"  style="width: 100px;"   type="number" id="totalGuests" name="totalGuests" min="1" value="1" required>
         </div>
         <div class="group findnow-btn">
-            <button class="booking-btn" type="submit">Find Now</button>
-        </div>
+            <button id="booking-btn" class="booking-btn" type="submit">
+                <span class="button-text">Find Now</span>
+                <span class="loading-animation" style="display: none;">Loading...</span>
+            </button>
+        </div>      
         </form>
         <div id="result" class="result"></div>
     </div>
