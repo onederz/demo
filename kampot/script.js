@@ -1,8 +1,8 @@
 const swiper1 = new Swiper('.swiper1', {
-    // Optional parameters
     loop: true,
-    slidesPerView: 1,  // Default value
-    spaceBetween: 10,     // Space between slides
+    slidesPerView: 1.2,
+    spaceBetween: 0,
+    centeredSlides: true,
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -12,22 +12,56 @@ const swiper1 = new Swiper('.swiper1', {
         prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-        // When window width is >= 800px
-        600: {
-            slidesPerView: 3, // Set slidesPerView to 1 for max-width 800px
+        550: {
+            slidesPerView: 1.2,
+            spaceBetween: 10,
+            centeredSlides: true,
         },
-        801: {
-            slidesPerView: 3.2, // Ensure it's 3.2 or more for widths >= 1200px
+        700: {
+            slidesPerView: 2.2,
+            spaceBetween: 10,
+            centeredSlides: false,
+        },
+        1001: {
+            slidesPerView: 3.2,
+            spaceBetween: 10,
+            centeredSlides: true,
         },
     },
-    // Add any additional settings here
+    on: {
+        slideChange: function () {
+            if (window.innerWidth < 700) {
+                this.slides.forEach(slide => {
+                    slide.style.opacity = '0.3';
+                    slide.style.transform = 'scale(0.9)';
+                    slide.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+                });
+
+                const activeSlide = this.slides[this.activeIndex];
+                if (activeSlide) {
+                    activeSlide.style.opacity = '1';
+                    activeSlide.style.transform = 'scale(1)';
+                }
+            } else {
+                this.slides.forEach(slide => {
+                    slide.style.opacity = '1';
+                    slide.style.transform = 'scale(1)';
+                    slide.style.transition = 'none';
+                });
+            }
+        },
+    },
 });
 
+
+
+
 const swiper2 = new Swiper('.swiper2', {
-    // Optional parameters
+
     loop: true,
-    slidesPerView: 1,  // Default value
-    spaceBetween: 10,     // Space between slides
+    slidesPerView: 1.2,
+    spaceBetween: 0,
+    centeredSlides: true,
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -37,21 +71,51 @@ const swiper2 = new Swiper('.swiper2', {
         prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-        // When window width is >= 800px
-        600: {
-            slidesPerView: 3, // Set slidesPerView to 1 for max-width 800px
+        550: {
+            slidesPerView: 1.2,
+            spaceBetween: 10,
         },
-        801: {
-            slidesPerView: 3.2, // Ensure it's 3.2 or more for widths >= 1200px
+        700: {
+            slidesPerView: 2.2,
+            spaceBetween: 10,
+            centeredSlides: false,
+
+        },
+        1001: {
+            slidesPerView: 3.2,
+            spaceBetween: 10,
+            centeredSlides: true,
         },
     },
-    // Add any additional settings here
+    on: {
+        slideChange: function () {
+            if (window.innerWidth < 700) {
+                this.slides.forEach(slide => {
+                    slide.style.opacity = '0.3';
+                    slide.style.transform = 'scale(0.9)';
+                    slide.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+                });
+
+                const activeSlide = this.slides[this.activeIndex];
+                if (activeSlide) {
+                    activeSlide.style.opacity = '1';
+                    activeSlide.style.transform = 'scale(1)';
+                }
+            } else {
+                this.slides.forEach(slide => {
+                    slide.style.opacity = '1';
+                    slide.style.transform = 'scale(1)';
+                    slide.style.transition = 'none';
+                });
+            }
+        },
+    },
 });
 
 
 const swiper3 = new Swiper('.swiper3', {
-    loop: true,
-    slidesPerView: 1,
+    loop: false, // Set to false to disable looping
+    slidesPerView: 1.1,
     spaceBetween: 0,
     pagination: {
         el: '.swiper-pagination',
@@ -61,93 +125,190 @@ const swiper3 = new Swiper('.swiper3', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-});
+    breakpoints: {
+        550: {
+            slidesPerView: 1.2,
+            spaceBetween: 10,
+            centeredSlides: false,
+        },
+        700: {
+            slidesPerView: 2.2,
+            spaceBetween: 10,
+            centeredSlides: false,
+        },
+        1001: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            centeredSlides: true,
+        },
+    },
+    on: {
+        // Triggered when the Swiper instance is initialized
+        init: function () {
+            const applyStyles = () => {
+                this.slides.forEach((slide, index) => {
+                    if (window.innerWidth > 500) {
+                        // No opacity change for larger screens
+                        slide.style.opacity = '1';
+                        slide.style.transform = 'scale(1)';
+                    } else {
+                        // Apply opacity and scale effects for smaller screens
+                        if (index === this.activeIndex) {
+                            slide.style.opacity = '1';
+                            slide.style.transform = 'scale(0.95)';
+                        } else {
+                            slide.style.opacity = '0.2';
+                            slide.style.transform = 'scale(1)';
+                        }
+                    }
+                    slide.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+                });
+            };
 
+            applyStyles(); // Apply styles on initialization
+            window.addEventListener('resize', applyStyles); // Reapply on window resize
+        },
+        slideChange: function () {
+            this.slides.forEach(slide => {
+                if (window.innerWidth > 500) {
+                    // No opacity change for larger screens
+                    slide.style.opacity = '1';
+                    slide.style.transform = 'scale(1)';
+                } else {
+                    // Apply opacity and scale effects for smaller screens
+                    slide.style.opacity = '0.2';
+                    slide.style.transform = 'scale(1)';
+                }
+                slide.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+            });
+
+            // Highlight the active slide for smaller screens
+            if (window.innerWidth <= 700) {
+                const activeSlide = this.slides[this.activeIndex];
+                if (activeSlide) {
+                    activeSlide.style.opacity = '1';
+                    activeSlide.style.transform = 'scale(0.95)';
+                }
+            }
+        },
+    },
+});
 
 // Room PHOTO pop up
-const galleryItems = document.querySelectorAll('.gallery-item img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.querySelector('.close');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const thumbnailItems = document.querySelectorAll('.thumbnail-item img');
+document.addEventListener("DOMContentLoaded", function () {
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.close');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const thumbnailItems = document.querySelectorAll('.thumbnail-item img');
 
-let currentIndex = 0;
+    let currentIndex = 0;
+    let startX = 0;
+    let endX = 0;
 
-// Function to update the active thumbnail
-function updateActiveThumbnail() {
-    thumbnailItems.forEach((thumbnail, index) => {
-        const thumbnailItem = thumbnail.closest('.thumbnail-item');
-        thumbnailItem.classList.toggle('active', index === currentIndex);
+    // Function to update the active thumbnail
+    function updateActiveThumbnail() {
+        thumbnailItems.forEach((thumbnail, index) => {
+            const thumbnailItem = thumbnail.closest('.thumbnail-item');
+            thumbnailItem.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    // Function to toggle body scroll
+    function toggleBodyScroll(isDisabled) {
+        document.body.style.overflow = isDisabled ? 'hidden' : 'auto';
+    }
+
+    // Open lightbox on click of main gallery item
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function () {
+            currentIndex = index;
+            lightbox.style.display = 'flex';
+            lightboxImg.src = this.src;
+            updateActiveThumbnail();
+            toggleBodyScroll(true); // Disable scrolling
+        });
     });
-}
 
-// Function to toggle body scroll
-function toggleBodyScroll(isDisabled) {
-    document.body.style.overflow = isDisabled ? 'hidden' : 'auto';
-}
-
-// Open lightbox on click of main gallery item
-galleryItems.forEach((item, index) => {
-    item.addEventListener('click', function() {
-        currentIndex = index;
-        lightbox.style.display = 'flex';
-        lightboxImg.src = this.src;
-        updateActiveThumbnail();
-        toggleBodyScroll(true);  // Disable scrolling
-    });
-});
-
-// Close lightbox
-closeBtn.addEventListener('click', function() {
-    lightbox.style.display = 'none';
-    toggleBodyScroll(false); // Enable scrolling
-});
-
-// Close lightbox when clicking outside the image
-lightbox.addEventListener('click', function(e) {
-    if (e.target !== lightboxImg && !e.target.closest('.thumbnail-item') && e.target !== prevBtn && e.target !== nextBtn) {
+    // Close lightbox
+    closeBtn.addEventListener('click', function () {
         lightbox.style.display = 'none';
         toggleBodyScroll(false); // Enable scrolling
-    }
-});
+    });
 
-// Thumbnail click to change lightbox main image
-thumbnailItems.forEach((thumbnail, index) => {
-    thumbnail.addEventListener('click', function() {
-        currentIndex = index;
-        lightboxImg.src = this.src;
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', function (e) {
+        if (e.target !== lightboxImg && !e.target.closest('.thumbnail-item') && e.target !== prevBtn && e.target !== nextBtn) {
+            lightbox.style.display = 'none';
+            toggleBodyScroll(false); // Enable scrolling
+        }
+    });
+
+    // Thumbnail click to change lightbox main image
+    thumbnailItems.forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', function () {
+            currentIndex = index;
+            lightboxImg.src = this.src;
+            updateActiveThumbnail();
+        });
+    });
+
+    // Show previous image
+    function showPrevImage() {
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        lightboxImg.src = galleryItems[currentIndex].src;
         updateActiveThumbnail();
+    }
+
+    // Show next image
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        lightboxImg.src = galleryItems[currentIndex].src;
+        updateActiveThumbnail();
+    }
+
+    prevBtn.addEventListener('click', showPrevImage);
+    nextBtn.addEventListener('click', showNextImage);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function (e) {
+        if (lightbox.style.display === 'flex') {
+            if (e.key === 'ArrowLeft') {
+                showPrevImage();
+            } else if (e.key === 'ArrowRight') {
+                showNextImage();
+            } else if (e.key === 'Escape') {
+                closeBtn.click();
+            }
+        }
+    });
+
+    // Swipe handling
+    lightboxImg.addEventListener('touchstart', function (e) {
+        startX = e.touches[0].clientX;
+    });
+
+    lightboxImg.addEventListener('touchmove', function (e) {
+        endX = e.touches[0].clientX;
+    });
+
+    lightboxImg.addEventListener('touchend', function () {
+        const diffX = startX - endX;
+
+        if (Math.abs(diffX) > 50) { // Minimum swipe distance threshold
+            if (diffX > 0) {
+                showNextImage(); // Swipe left
+            } else {
+                showPrevImage(); // Swipe right
+            }
+        }
+        startX = 0;
+        endX = 0;
     });
 });
 
-// Show previous image
-prevBtn.addEventListener('click', function() {
-    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    lightboxImg.src = galleryItems[currentIndex].src;
-    updateActiveThumbnail();
-});
-
-// Show next image
-nextBtn.addEventListener('click', function() {
-    currentIndex = (currentIndex + 1) % galleryItems.length;
-    lightboxImg.src = galleryItems[currentIndex].src;
-    updateActiveThumbnail();
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
-    if (lightbox.style.display === 'flex') {
-        if (e.key === 'ArrowLeft') {
-            prevBtn.click();
-        } else if (e.key === 'ArrowRight') {
-            nextBtn.click();
-        } else if (e.key === 'Escape') {
-            closeBtn.click();
-        }
-    }
-});
 
 // scroll active navigation
 document.addEventListener("DOMContentLoaded", () => {
