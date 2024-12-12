@@ -56,7 +56,7 @@ img {
     z-index: 2;
 }
 #main_logo_small {
-    margin: 0.5rem 0 0.5rem 0.5rem;
+    padding: 0.6rem 0 0 0.5rem;
     width: 100px;
 }
 
@@ -233,9 +233,9 @@ img {
 }
 
 #overlay {
-    position: relative;
+    position: absolute;
     z-index: 5;
-    margin-top: -13rem;
+    margin-top: -8.5rem;
 }
 #background.no-scroll {
     filter: blur(3px);
@@ -248,16 +248,22 @@ img {
     left: 0;
 }
 
+@media only screen and (min-width: 500px) {
+    .container-form {
+        height: 100px;
+    }
+}
+
 #container-form {
-    width: 100%;
+    width: 100svw;
 }
 .container-form {
     z-index: 5 !important;
     border-radius: 0.2rem;
     justify-content: center;
     align-items: center;
-    max-width: 470px;
-    height: 190px;
+    max-width: 100svw;
+    height: auto;
     padding: 0.5rem;
     margin-left: auto;
     margin-right: auto;
@@ -274,6 +280,8 @@ img {
 }
 
 .select-hostel {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     width: 220px;
     height: 60px;
 }
@@ -357,17 +365,16 @@ label {
   .booking-btn {
     font-size: 1.2rem;
     color: white;
-    margin: 0px 0 7px 0px;
-    width: 470px;
-    height: 56px;
+    margin: 15.5px 0 7px 0px;
+    width: 100px;
+    height: 60px;
     border: none;
     background-color: #3b6e70;
     cursor: pointer;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
-  .findnow-btn {
-    position: absolute;
-    bottom: 0;
-  }
+
   /* Date picker */
   .calendar-container {
     display: none; /* Hide by default */

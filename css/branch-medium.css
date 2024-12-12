@@ -9,10 +9,14 @@ body {
     display: none;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /*NAVIGATION*/
 .navigation_large_pc {
     width: 100%;
-    z-index: 5;
+    z-index: 6;
     top: 0;
     position: fixed;
 }
@@ -29,15 +33,14 @@ body {
     margin-right: auto;
     max-width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: 6;
     background-color: rgba(255, 255, 255, 0.932);
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(5px) saturate(180%);
 }
 #main_logo {
-    padding: 1rem;
-    width: 100px;
-    height: 60px;
+    padding: 0.7rem 0 0 0.5rem;
+    width: 130px;
 }
 #khmer-house {
     margin: auto;
@@ -104,6 +107,7 @@ body {
 /*TOP PHOTO*/
 
 #background {
+    overflow-x: hidden;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -136,76 +140,106 @@ body {
     margin-bottom: 0%;
 }
 
-#top-photo-kampot {
+.top-photo-branch {
+    z-index: 1;
     width: 100%;
-    background-image: url("../images/kampot/main_img_dt.jpg");
+    aspect-ratio: 1.5;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    height: 0;
-    padding-top: 40%;
 }
 
-#top-photo-khmer-house {
+.top-photo-branch h1 {
+    font-weight: 600;
+    position: absolute;
+    top: 6rem;
     width: 100%;
-    background-image: url("../images/khmer-house-800-400.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
+    text-align: center;
+    font-size: 2.5em;
+    color: #ffffff;
+    text-shadow: 1px 1px 0.5px #2e2e2e62;
 }
+
+#top-photo-siem-reap {
+    background-image: url("../images/siem-reap-top-photo-1200-480.jpg");
+}
+
 #top-photo-phnom-penh {
-    width: 100%;
-    background-image: url("../images/phnom-penh-top-large.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
+    background-image: url("../phnom-penh/phnom-penh-img/phnom-penh-top-image.jpg");
 }
-#top-photo-phnom-penh-one-stop {
-    width: 100%;
-    background-image: url("../images/phnom-penh-onestop-top-large.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
+
+#top-photo-kampot {
+    background-image: url("../kampot/kampot-img/kampot-top-image.jpg");
+    background-position: center ;
 }
+
 #top-photo-sihanoukville {
-    width: 100%;
-    background-image: url("../images/sihanoukville-top-large.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
-}
+    background-image: url("../sihanoukville/sihanoukville-img/sihanoukville-top-image.jpg");
+}  
 #top-photo-koh-rong-sanloem {
-    width: 100%;
-    background-image: url("../images/koh-rong-sanloem-top-large.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
+    background-image: url("../koh-rong-sanloem/koh-rong-sanleom-img/koh-rong-sanleom-top-image.jpg");
+    background-position: right top;
+} 
+#top-photo-koh-rong {
+    background-image: url("../koh-rong/koh-rong-img/koh-rong-top.jpg");
+    background-position: center;
 }
 
 /*INTRODUCTION*/ 
 .introduction-handle {
-    margin: 4rem 0.5rem 4rem 0.5rem;
+    margin: 0rem 0.5rem 0rem 0.5rem;
     max-width: 1080px;
     margin-right: auto;
     margin-left: auto;
     display: flex;
     position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: #2766E7;
+}
+.introduction-award {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #introduction-message-1 {
-    padding: 0.5rem;
-    color: white;
-    background-color: rgba(39,102,231,255);
+    padding: 1rem;
+    color: rgb(0, 0, 0);
     text-align: center;
-    margin: 0 0rem 1rem -1.5rem;
+    font-weight: 600;
+    font-size: 1.2em;
+    background-color: #d8d8d8;
+}
+#introduction-message-2, #introduction-message-3, h2 {
+    padding-left: 1rem;
 }
 #introduction-photo-siem-reap {
     width: 40%;
 }
+#introduction-photo-kampot {
+    width: 90%;
+}
 #introduction {
+    border: 1px solid white;
     width: 70%;
-    padding-left: 1rem;
+    background-color: #ffffff;
+}
+#introduction-kp {
+    border: 1px solid white;
+    width: 85%;
+    background-color: #ffffff;
+}
+#introduction-kp h2{
+    font-size: 1em;
+    padding: 0 0rem 0 1rem;
+    margin: 0;
 }
 #introduction h2 {
     font-size: 1.2em;
     margin-bottom: 0;
+    font-weight: 600;
 }
 #introduction p {
     font-size: 1.1em;
@@ -214,15 +248,10 @@ body {
 .introduction-photo-siem-reap {
     width: 100%;
 }
-
-
-#introduction-photo-kampot {
-    width: 33.3%;
-    background-image: url("../images/kampot/intro_img.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 33.3%;
+.introduction-photo-kampot {
+    width: 100%;
 }
+
 #introduction-photo-phnom-penh {
     width: 33.3%;
     background-image: url("../images/go-to-phnom-penh.jpg");
@@ -257,24 +286,6 @@ body {
     display: none;
 }
 
-#introduction-siem-reap{
-    width: 50%;
-    max-height: 100%;
-    font-size: 1.2em;
-    text-align: left;
-    padding-top: 2%;
-    height: 0;
-    padding-top: 30.9%;
-    background-image: url("../images/img_facilities_tour_1.jpg");
-    background-size: cover;
-}
-#introduction-siem-reap p{
-    color: white;
-    max-height: 100%;
-    padding-top: 2%;
-    height: 0;
-    margin-top: -60%;
-}
 
 #siem-reap-hostel-location {
     width: 50%; 
@@ -320,7 +331,7 @@ li.menu__single_3 ul.menu__second-level a:hover {
     border-bottom: solid black 11px;
 }
 img {
-    max-width: 100%;
+    width: 100%;
 }
 
 /*PAGE FOR PHOTO*/
@@ -334,7 +345,7 @@ img {
 .gallery-item {
     background-color: black;
     position: relative;
-    width: 25%;
+    width: 26.2%;
     height: auto;
     overflow: hidden;
     cursor: pointer;
@@ -368,7 +379,7 @@ img {
 .more-img {
     pointer-events: none;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.1em;
     position: absolute;
     bottom: 20%;
     left: 50%;
@@ -466,6 +477,10 @@ img {
     justify-content: center;
     position: relative;
   }
+
+.centered-text span {
+    font-weight: 600;
+}
   
   .centered-text::before,
   .centered-text::after {
@@ -477,20 +492,79 @@ img {
 }
 
 #room {
-    padding-top: 5rem;
+    scroll-margin-top: 80px;
+}
+.room-booking-pic {
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: 1.5;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.room-sale-photo {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#bed4-dorm {
+    background-image: url("../siem-reap/siem-reap-img/4-bed-dorm.jpg");
+}
+
+#bed6-dorm {
+    background-image: url("../siem-reap/siem-reap-img/6-bed-dorm.jpg"); 
+}
+#sbed6-dorm {
+    background-image: url("../siem-reap/siem-reap-img/superior-6bed.jpg");  
+}
+#bed12-dorm {
+    background-image: url("../siem-reap/siem-reap-img/12-bed-dorm.jpg");  
+}
+#sd-room {
+    background-image: url("../siem-reap/siem-reap-img/standard-bouble.jpg");  
+}
+#st-room {
+    background-image: url("../siem-reap/siem-reap-img/standard-twin.jpg");  
+}
+#srd-room {
+    background-image: url("../siem-reap/siem-reap-img/superior-double.jpg");  
+}
+#srt-room {
+    background-image: url("../siem-reap/siem-reap-img/superior-twin.jpg");
+    background-position: center bottom;  
+}
+#dt-room {
+    background-image: url("../siem-reap/siem-reap-img/deluxe-room.jpg");  
+}
+#dtp-room {
+    background-image: url("../siem-reap/siem-reap-img/deluxe-room.jpg");  
 }
 .swiper1, .swiper2, .swiper3 {
     position: relative;
     width: 100%;
 }
-.swiper3 .swiper-slide {
+.swiper3 .swiper-slide, .swiper2 .swiper-slide, .swiper1 .swiper-slide {
     padding: 0;
+    height: auto;
 }
 
 .swiper3 h3,
 .swiper3 h4,
 .swiper3 p{
-    padding: 0 5rem 0 5rem;
+    padding: 0 0.5rem 0 1rem;
+}
+
+.swiper3 h3 {
+    font-weight: 600;
+}
+
+.swiper2 h3,
+.swiper2 h4 {
+
+    font-weight: 600;
+    padding: 0rem 0.5rem 0rem 1rem;
+}
+.swiper2 p{
+    padding: 0rem 0.5rem 0rem 1rem;
 }
 
 .room-line h1 {
@@ -512,12 +586,25 @@ img {
     width: 66.7%;
 }
 
+.room-desripe h1 {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
 .room-desripe h4 {
     font-size: 1.1em;
 }
 
-.swiper-wrapper {
-    margin-bottom: 2rem;
+.swiper1 .swiper-wrapper {
+    margin-bottom: 3rem;
+}
+
+.swiper2 .swiper-wrapper {
+    margin-bottom: 3rem;
+}
+
+.swiper3 .swiper-wrapper {
+    margin-bottom: 3rem;
 }
 
 .swiper-slide img {
@@ -544,20 +631,23 @@ img {
 }
 
 .room-description {
-    position: absolute;
-    bottom: 0rem;
-    color: white;
-    background-color: rgba(95, 95, 95, 0.637);
+    position: relative;
+    color: rgb(0, 0, 0);
+
     width: 100%;
+    height: 80px;
 }
 .room-description p {
-    font-size: 0.8em;
-    margin-top: 1.5rem;
+    font-size: 1em;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
     padding-left: 0.5rem;
 }
 .room-description h2 {
+    font-size: 1.3em;
+    font-weight: normal;
     margin: 0;
+    padding-top: 0.4rem;
     padding-left: 0.5rem;
 }
 
@@ -566,14 +656,21 @@ img {
     bottom: 0.5rem;
     right: 0.5rem;
 }
-#check-availaility p{
+#check-availaility a p{
     margin: 0;
+    padding: 0;
+    color: white;
 }
 .check-availaility {
-    font-size: 0.8em;
-    padding: 0.3rem 0.5rem 0.5rem 0;
+    display: flex;
+    font-size: 0.8em !important;
+    height: 35px;
+    width: 150px;
+    border-radius: 10px;
     border: 1px solid white;
     background-color: #00000081;
+    align-items: center;
+    justify-content: center;
 }
 
 #readMoreBtn1, #readLessBtn1, #readMoreBtn2, #readLessBtn2 {
@@ -587,38 +684,212 @@ img {
 
 /*Facilities/services*/
 #facilities-services {
-    padding-top: 6rem;
+    scroll-margin-top: 80px;
     width: 100%;
     text-align: center;
 }
-
 
 
 .facilities-services {
     display: flex;
     justify-content: left;
     text-align: center;
+    display: none;
 }
 .facilities-services div {
     margin: 0.5rem;
 }
 
+.fac-row {
+    display: none;
+}
+
+.fac-border {
+    border: 1px solid rgba(77, 77, 77, 0.171);
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px rgba(80, 80, 80, 0.322);
+}
+
+.fac-border p{
+    padding-bottom: 1rem;
+}
+
+#parking {
+    display: none;
+}
+
+/* Siem Reap Facility Photo */
+
+.facilities-photo {
+    aspect-ratio: 2;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#facility-pool {
+    background-image: url("../siem-reap/siem-reap-img/swimmingpool-facility.jpg");
+}
+
+#facility-reception {
+    background-image: url("../siem-reap/siem-reap-img/facility-reception.jpg");
+}
+
+#facility-restaurant {
+    background-image: url("../siem-reap/siem-reap-img/restaurant-facility.jpg");
+}
+
+#facility-lounge {
+    background-image: url("../siem-reap/siem-reap-img/common-area-facility.jpg");
+    background-position: bottom center;
+}
+
+#facility-bathroom {
+    background-image: url("../siem-reap/siem-reap-img/bathroom-f.jpg");
+    background-position: center;
+}
+
+#parking {
+    display: none;
+}
+
+/* Sihanoukville Facility Photo */
+#facility-pool-shv {
+    background-image: url("../sihanoukville/sihanoukville-img/sihanoukville-top-image.jpg");
+    background-position: center bottom;
+}
+#facility-lounge-shv {
+    background-image: url("../sihanoukville/sihanoukville-img/restaurant.jpg");
+    background-position: bottom center;
+}
+
+#facility-bathroom-shv {
+    background-image: url("../sihanoukville/sihanoukville-img/bathroom.jpg");
+    background-position: center;
+}
+
+#facility-reception-shv {
+    background-image: url("../sihanoukville/sihanoukville-img/reception.jpg");
+    background-position: center;
+}
+
 /* PAGE EXPERINCE */
 #tour-activity {
-    padding-top: 5rem;
+    scroll-margin-top: 80px;
     width: 100%;
     text-align: center;
+}
+
+.siem-reap-exp-photo {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 2;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#small-circuit {
+    background-image: url("../siem-reap/experince/Angkor-Wat-Sunrise.jpg");
+}
+#grand-circuit {
+    background-image: url("../siem-reap/experince/phnom-bakeng-sunset.jpg");
+}
+#cycling-tour {
+    background-image: url("../siem-reap/experince/cycling-2.jpg");
+}
+#streetfood-tour {
+    background-image: url("../siem-reap/experince/streetfood-1.jpg");
+}
+#bracelet-class {
+    background-image: url("../siem-reap/experince/bracelet-2.jpg");
+}
+#yoga-class {
+    background-image: url("../siem-reap/experince/yoga-2.jpg");
+}
+#social-night {
+    background-image: url("../siem-reap/experince/social-night.jpg");
+}
+#monk-blessing {
+    background-image: url("../siem-reap/experince/monk-blessing.jpg");
+}
+
+#kulen-tour {
+    background-image: url("../siem-reap/experince/kulen-waterfall.jpg");
+}
+
+/*Phnom Penh experience photo */
+
+#killing-field {
+    background-image: url("../phnom-penh/experince/killing-field.jpg");
+}
+
+#cooking-class {
+    background-image: url("../phnom-penh/experince/cooking-class.jpg");
+}
+
+#khmer-class {
+    background-image: url("../phnom-penh/experince/khmer-class.jpg");
+}
+
+/* Phnom Penh Facility Photo */
+#facility-pool-pp {
+    background-image: url("../phnom-penh/phnom-penh-img/rooftop-swimming-pool2.jfif");
+    background-position: bottom center;
+}
+
+#facility-restaurant-pp {
+    background-image: url("../phnom-penh/phnom-penh-img/rooftop-restaurant.jpg");
+    background-position: bottom center;
+}
+
+#facility-lounge-pp {
+    background-image: url("../phnom-penh/phnom-penh-img/lounge2.jpg");
+    background-position: center bottom;
+}
+
+/* Kampot Facility Photo */
+#facility-pool-kp {
+    background-image: url("../kampot/kampot-img/swimming-pool.jpg");
+    background-position: bottom center;
+}
+
+#facility-reception-kp {
+    background-image: url("../siem-reap/siem-reap-img/facility-reception.jpg");
+    background-position: bottom center;
+}
+
+#facility-lounge-kp {
+    background-image: url("../kampot/kampot-img/lounge.jpg");
+    background-position: bottom center;
+}
+
+#facility-bathroom-kp {
+    background-image: url("../kampot/kampot-img/toilet.jpg");
+    background-position: bottom center;
 }
 
 /*PAGE FOR LOCATION*/
 
 #location {
-    padding-top: 6rem;
+    scroll-margin-top: 80px;
+    margin-bottom: 5rem;
 }
 .location {
-    display: flex;
+    display: block;
 }
-
+.location-maps {
+    margin-bottom: 1rem;
+    aspect-ratio: 1.5;
+    width: 100%;
+}
+.location-map {
+    width: 100%;
+}
+.location-descripe {
+    width: 100%;
+}
 .location p {
     font-size: 1.1em;
     margin: 0.5rem 0.5rem 0.5rem 2rem;
@@ -671,24 +942,7 @@ img {
     bottom: 0rem;
 }
 
-#top-photo-siem-reap {
-    width: 100%;
-    height: 700px;
-    position: relative;
-    background-repeat: no-repeat;
-    background-image: url("../images/siem-reap-top-photo-1200-480.webp");
-    background-position: center;
-    background-size: cover;
-}
 
-#top-photo-siem-reap h1 {
-    font-weight: normal;
-    position: absolute;
-    top: 5rem;
-    left: 2.5rem;
-    font-size: 3.3em;
-    color: #ffffff;
-}
 .contents-middle-description p {
     clear: both;
     width: 80%;
@@ -766,19 +1020,21 @@ img {
 /* Booking form */
 
 #overlay {
-    position: relative;
-    margin-top: -12rem;
+    position: absolute !important;
+    margin-top: -9rem;
     z-index: 5;
+}
+#container-form {
+    width: 100svw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container-form {
     z-index: 5 !important;
     border-radius: 0.5rem;
-    padding: 0.5rem 2rem 0.5rem 1rem;
-    justify-content: center;
-    align-items: center;
-    max-width: 755px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 1rem;
+    max-width: 100%;
     background-color: rgba(255, 255, 255, 0.582);
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(5px) saturate(180%);
@@ -876,9 +1132,9 @@ label {
     font-size: 1.2rem;
     border-radius: 0.5rem;
     color: white;
-    margin: 5px 0 1px 5px;
+    margin: 9px 0 1px 5px;
     width: 120px;
-    height: 58px;
+    height: 54px;
     border: none;
     background-color: #3b6e70;
     cursor: pointer;
@@ -1259,7 +1515,11 @@ label {
     padding-top: 50%;
 }
 
-
+footer {
+    background-color: #a7a7a7;
+    padding: 0.5rem;
+    font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
+}
 
 #branch-footer {
     position: relative;
@@ -1353,4 +1613,35 @@ a:hover {
     text-align: left;
     padding-bottom: 7%;
     margin-bottom: 0;
+}
+
+.location-photo-svg {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: -0.25rem;
+}
+
+#walking-svg {
+    background-image: url("../symbol/walk.png");
+}
+
+#airplane-svg {
+    background-image: url("../symbol/airplane.png");
+}
+#address-svg {
+    background-image: url("../symbol/address.png");
+}
+#mail-svg {
+    background-image: url("../symbol/mail.png");
+}
+#phone-svg {
+    background-image: url("../symbol/call.png");
+}
+#whatsapp-svg {
+    background-image: url("../symbol/whatsapp.png");
+}
+#telegram-svg {
+    background-image: url("../symbol/telegram.png");
 }

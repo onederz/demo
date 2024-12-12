@@ -137,68 +137,98 @@ body {
     margin-bottom: 0%;
 }
 
-#top-photo-kampot {
+.top-photo-branch {
+    z-index: 1;
     width: 100%;
-    background-image: url("../images/kampot/main_img_dt.jpg");
+    aspect-ratio: 1.6;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    height: 0;
-    padding-top: 40%;
 }
 
-#top-photo-khmer-house {
+.top-photo-branch h1 {
+    font-weight: 600;
+    position: absolute;
+    top: 6rem;
     width: 100%;
-    background-image: url("../images/khmer-house-800-400.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
+    text-align: center;
+    font-size: 2.5em;
+    color: #ffffff;
+    text-shadow: 1px 1px 0.5px #2e2e2e62;
 }
+
+#top-photo-siem-reap {
+    background-image: url("../images/siem-reap-top-photo-1200-480.jpg");
+}
+
 #top-photo-phnom-penh {
-    width: 100%;
-    background-image: url("../images/phnom-penh-top-large.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
+    background-image: url("../phnom-penh/phnom-penh-img/phnom-penh-top-image.jpg");
 }
-#top-photo-phnom-penh-one-stop {
-    width: 100%;
-    background-image: url("../images/phnom-penh-onestop-top-large.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
+
+#top-photo-kampot {
+    background-image: url("../kampot/kampot-img/kampot-top-image.jpg");
+    background-position: center ;
 }
+
 #top-photo-sihanoukville {
-    width: 100%;
-    background-image: url("../images/sihanoukville-top-large.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
-}
+    background-image: url("../sihanoukville/sihanoukville-img/sihanoukville-top-image.jpg");
+}  
 #top-photo-koh-rong-sanloem {
-    width: 100%;
-    background-image: url("../images/koh-rong-sanloem-top-large.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 40%;
+    background-image: url("../koh-rong-sanloem/koh-rong-sanleom-img/koh-rong-sanleom-top-image.jpg");
+    background-position: right top;
+} 
+#top-photo-koh-rong {
+    background-image: url("../koh-rong/koh-rong-img/koh-rong-top.jpg");
+    background-position: center;
 }
 
 /*INTRODUCTION*/ 
 .introduction-handle {
-    margin: 4rem 0.5rem 4rem 0.5rem;
+    margin: 0rem 0.5rem 0rem 0.5rem;
     max-width: 1080px;
     margin-right: auto;
     margin-left: auto;
     display: flex;
     position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: #2766E7;
+}
+.introduction-award {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #introduction-message-1 {
+    padding: 1rem;
+    color: rgb(0, 0, 0);
+    text-align: center;
     font-weight: 600;
+    font-size: 1.2em;
+    background-color: #d8d8d8;
+}
+#introduction-message-2, #introduction-message-3, h2 {
+    padding-left: 1rem;
 }
 #introduction-photo-siem-reap {
     width: 40%;
 }
 #introduction {
+    border: 1px solid white;
     width: 70%;
-    padding-left: 1rem;
+    background-color: #ffffff;
+}
+#introduction-kp {
+    border: 1px solid white;
+    width: 80%;
+    background-color: #ffffff;
+}
+#introduction-kp h2{
+    font-size: 1em;
+    padding: 0 0rem 0 1rem;
+    margin: 0;
 }
 #introduction-message-1-mobile {
     display: none;
@@ -217,14 +247,11 @@ body {
     width: 100%;
 }
 
-
 #introduction-photo-kampot {
-    width: 33.3%;
-    background-image: url("../images/kampot/intro_img.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 33.3%;
+    width: 100%;
+    display: block;
 }
+
 #introduction-photo-phnom-penh {
     width: 33.3%;
     background-image: url("../images/go-to-phnom-penh.jpg");
@@ -327,13 +354,13 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0;
 }
 
 .gallery-item {
     background-color: black;
     position: relative;
-    width: 25%;
+    width: 26.25%;
     height: auto;
     overflow: hidden;
     cursor: pointer;
@@ -481,13 +508,16 @@ img {
 }
 
 #room {
-    padding-top: 5rem;
+    scroll-margin-top: 80px;
+    padding-top: 0;
 }
 
 .room-booking-pic {
     background-size: cover;
     background-repeat: no-repeat;
     aspect-ratio: 1.4;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #bed4-dorm {
@@ -527,8 +557,15 @@ img {
     position: relative;
     width: 100%;
 }
-.swiper3 .swiper-slide {
+.swiper3 .swiper-slide, .swiper2 .swiper-slide, .swiper1 .swiper-slide {
     padding: 0;
+    height: auto;
+}
+
+.swiper3 .fac-border {
+    background-color: white;
+    border: none;
+    box-shadow: none;
 }
 
 .swiper-button-next::after {
@@ -565,6 +602,16 @@ img {
 .swiper3 h4,
 .swiper3 p{
     padding: 0 5rem 0 5rem;
+}
+
+.swiper2 h3,
+.swiper2 h4 {
+
+    font-weight: 600;
+    padding: 0rem 0.5rem 0rem 1rem;
+}
+.swiper2 p{
+    padding: 0rem 0.5rem 0rem 1rem;
 }
 
 .room-line h1 {
@@ -612,23 +659,23 @@ img {
 }
 
 .room-description {
-    position: absolute;
-    bottom: 0rem;
-    color: white;
-    background-color: rgba(95, 95, 95, 0.637);
+    position: relative;
+    color: rgb(0, 0, 0);
+
     width: 100%;
+    height: 80px;
 }
 .room-description p {
-    font-size: 0.8em;
-    margin-top: 1.5rem;
+    font-size: 1em;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
     padding-left: 0.5rem;
 }
 .room-description h2 {
-    font-size: 1.35em;
+    font-size: 1.3em;
     font-weight: normal;
     margin: 0;
-    padding-top: 0.5rem;
+    padding-top: 0.4rem;
     padding-left: 0.5rem;
 }
 
@@ -639,14 +686,22 @@ img {
 }
 #check-availaility a p{
     margin: 0;
+    padding: 0;
     color: white;
 }
 .check-availaility {
-    font-size: 0.8em;
-    padding: 0.3rem 0.5rem 0.5rem 0;
+    display: flex;
+    font-size: 0.8em !important;
+    height: 35px;
+    width: 150px;
+    border-radius: 10px;
     border: 1px solid white;
     background-color: #00000081;
+    align-items: center;
+    justify-content: center;
 }
+
+
 
 #readMoreBtn1, #readLessBtn1, #readMoreBtn2, #readLessBtn2 {
     cursor: pointer;
@@ -659,7 +714,8 @@ img {
 
 /*Facilities/services*/
 #facilities-services {
-    padding-top: 6rem;
+    scroll-margin-top: 80px;
+    padding-top: 0;
     width: 100%;
     text-align: center;
 }
@@ -688,15 +744,24 @@ img {
     margin-bottom: .5rem;
 }
 
+
 .facilities-services p {
     margin: 0 0 3rem 0;
     font-size: 0.9em;
 }
 
+.fac-border {
+    border: 1px solid rgba(77, 77, 77, 0.171);
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px rgba(80, 80, 80, 0.322);
+}
+
 
 /* PAGE EXPERINCE */
 #tour-activity {
-    padding-top: 5rem;
+    scroll-margin-top: 80px;
+    padding-top: 0;
     width: 100%;
     text-align: center;
 }
@@ -706,6 +771,8 @@ img {
     background-position: center;
     background-repeat: no-repeat;
     aspect-ratio: 2;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #small-circuit {
@@ -737,10 +804,25 @@ img {
     background-image: url("../siem-reap/experince/kulen-waterfall.jpg");
 }
 
+/*Phnom Penh experience photo */
+
+#killing-field {
+    background-image: url("../phnom-penh/experince/killing-field.jpg");
+}
+
+#cooking-class {
+    background-image: url("../phnom-penh/experince/cooking-class.jpg");
+}
+
+#khmer-class {
+    background-image: url("../phnom-penh/experince/khmer-class.jpg");
+}
+
 /*PAGE FOR LOCATION*/
 
 #location {
-    padding-top: 6rem;
+    scroll-margin-top: 80px;
+    padding-top: 0;
 }
 .location {
     display: flex;
@@ -809,25 +891,6 @@ img {
     bottom: 0rem;
 }
 
-#top-photo-siem-reap {
-    width: 100%;
-    height: 700px;
-    position: relative;
-    background-repeat: no-repeat;
-    background-image: url("../images/siem-reap-top-photo-1200-480.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-
-#top-photo-siem-reap h1 {
-    font-weight: normal;
-    position: absolute;
-    top: 5rem;
-    left: 2.5rem;
-    font-size: 3.3em;
-    color: #ffffff;
-}
 .contents-middle-description p {
     clear: both;
     width: 80%;
@@ -1648,4 +1711,9 @@ a:hover {
 }
 #telegram-svg {
     background-image: url("../symbol/telegram.png");
+}
+footer {
+    background-color: #a7a7a7;
+    padding: 0.5rem;
+    font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
 }

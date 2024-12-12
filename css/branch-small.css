@@ -256,7 +256,6 @@ body.no-scroll {
     aspect-ratio: 0.75;
     position: relative;
     background-repeat: no-repeat;
-    background-image: url("../images/siem-reap-top-photo-1200-480.jpg");
     background-position: center;
     background-size: cover;
 }
@@ -266,7 +265,7 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 500px) {
-    #top-photo-siem-reap {
+    .top-photo-branch {
         aspect-ratio: 1; 
     }
 }
@@ -286,26 +285,21 @@ body.no-scroll {
     background-image: url("../phnom-penh/phnom-penh-img/phnom-penh-top-image.jpg");
 }
 
+#top-photo-kampot {
+    background-image: url("../kampot/kampot-img/kampot-top-image.jpg");
+    background-position: right -120px bottom ;
+}
+
 #top-photo-sihanoukville {
-    width: 100%;
-    background-image: url("../images/sihanoukville-top-mobile.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 62%;
+    background-image: url("../sihanoukville/sihanoukville-img/sihanoukville-top-image.jpg");
 }  
 #top-photo-koh-rong-sanloem {
-    width: 100%;
-    background-image: url("../images/koh-rong-sanloem-top-mobile.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 75%;
-}  
-#top-photo-kampot {
-    width: 100%;
-    background-image: url("../images/kampot/main_img_sp.jpg");
-    background-size: cover;
-    height: 0;
-    padding-top: 75%;
+    background-image: url("../koh-rong-sanloem/koh-rong-sanleom-img/koh-rong-sanleom-top-image.jpg");
+    background-position: right top;
+} 
+#top-photo-koh-rong {
+    background-image: url("../koh-rong/koh-rong-img/koh-rong-top.jpg");
+    background-position: center;
 }
 
 .booking-mobile-btn {
@@ -316,37 +310,16 @@ body.no-scroll {
     font-weight: bold;
     position: fixed;
     z-index: 4000;
-    width: 100%;
-    height: 70px;
+    width: 80%;
+    height: 60px;
     border-radius: 1rem;
-    background-color: #044444d5;
+    background-color: #115561f3;
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(5px) saturate(180%);
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.712);
     left: 50%;
-    bottom: 1rem;
+    bottom: 0.5rem;
     transform: translateX(-50%);
-}
-
-.text-mobile-btn {
-    font-size: 0.9em;
-    color: rgb(255, 255, 255);
-    padding: 0.5rem;
-    width: 65%;
-    text-align: center;
-}
-.booking-for-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin-right: 0.2rem;
-    text-align: center;
-    border-radius: 1rem;
-    width: 35%;
-    height: 60px;
-    background-color: #3b6e70;
-    border: 1px solid white;
 }
 
 #overlay {
@@ -453,8 +426,7 @@ body.no-scroll {
 
 .booking-tittle {
     text-align: center;
-    font-size: 15px;
-    display: none;
+    font-size: 1em;
 }
 
 label {
@@ -747,7 +719,7 @@ label {
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 48%;
     width: auto;
     padding: 16px;
     margin-top: -22px;
@@ -759,11 +731,11 @@ label {
 }
 
 .prev {
-    left: 10px;
+    left: -10px;
 }
 
 .next {
-    right: 10px;
+    right: -10px;
 }
 
 .prev:hover, .next:hover {
@@ -794,12 +766,18 @@ label {
 }
 
 #room {
-    padding-top: 2rem;
+    scroll-margin-top: 50px;
+    padding-top: 0;
 }
 .room-booking-pic {
     background-size: cover;
     background-repeat: no-repeat;
     aspect-ratio: 1.5;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.room-sale-photo {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -840,7 +818,7 @@ label {
     position: relative;
     width: 100%;
 }
-.swiper3 .swiper-slide {
+.swiper3 .swiper-slide, .swiper2 .swiper-slide, .swiper1 .swiper-slide {
     padding: 0;
     height: auto;
 }
@@ -849,7 +827,7 @@ label {
 .swiper3 h4,
 .swiper3 p{
     margin: 0;
-    padding: 0 0.5rem 0 0.5rem;
+    padding: 0 0.5rem 0 1rem;
 }
 
 .swiper2 h3,
@@ -860,7 +838,6 @@ label {
 }
 .swiper2 p{
     padding: 0rem 0.5rem 0rem 1rem;
-    height: 230px;
 }
 
 .room-line h1 {
@@ -897,7 +874,7 @@ label {
 }
 
 .swiper-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .swiper .swiper1  {
@@ -979,7 +956,8 @@ label {
 
 /*Facilities/services*/
 #facilities-services {
-    padding-top: 2rem;
+    scroll-margin-top: 50px;
+    padding-top: 0;
     width: 100%;
     text-align: center;
 }
@@ -1025,18 +1003,9 @@ label {
     padding-bottom: 1rem;
 }
 
-@media only screen and (min-width: 500px) {
-    .facilities-services {
-        width: 100%;
-        display: flex;
-        margin-left: auto;
-        justify-content: center;
-        text-align: center;
-    }
-    .fac-row {
-        display: block;
-    }
-}
+
+
+/* Siem Reap Facility Photo */
 
 .facilities-photo {
     aspect-ratio: 2;
@@ -1071,9 +1040,46 @@ label {
     display: none;
 }
 
+/* Sihanoukville Facility Photo */
+#facility-pool-shv {
+    background-image: url("../sihanoukville/sihanoukville-img/sihanoukville-top-image.jpg");
+    background-position: center bottom;
+}
+#facility-lounge-shv {
+    background-image: url("../sihanoukville/sihanoukville-img/restaurant.jpg");
+    background-position: bottom center;
+}
+
+#facility-bathroom-shv {
+    background-image: url("../sihanoukville/sihanoukville-img/bathroom.jpg");
+    background-position: center;
+}
+
+#facility-reception-shv {
+    background-image: url("../sihanoukville/sihanoukville-img/reception.jpg");
+    background-position: center;
+}
+
+/* Phnom Penh Facility Photo */
+#facility-pool-pp {
+    background-image: url("../phnom-penh/phnom-penh-img/rooftop-swimming-pool2.jfif");
+    background-position: bottom center;
+}
+
+#facility-restaurant-pp {
+    background-image: url("../phnom-penh/phnom-penh-img/rooftop-restaurant.jpg");
+    background-position: bottom center;
+}
+
+#facility-lounge-pp {
+    background-image: url("../phnom-penh/phnom-penh-img/lounge2.jpg");
+    background-position: center bottom;
+}
+
 /* PAGE EXPERINCE */
 #tour-activity {
-    padding-top: 2rem;
+    scroll-margin-top: 50px;
+    padding-top: 0;
     width: 100%;
     text-align: center;
     font-size: 0.95em;
@@ -1117,11 +1123,26 @@ label {
     background-image: url("../siem-reap/experince/kulen-waterfall.jpg");
 }
 
+/*Phnom Penh experience photo */
+
+#killing-field {
+    background-image: url("../phnom-penh/experince/killing-field.jpg");
+}
+
+#cooking-class {
+    background-image: url("../phnom-penh/experince/cooking-class.jpg");
+}
+
+#khmer-class {
+    background-image: url("../phnom-penh/experince/khmer-class.jpg");
+}
+
 /*PAGE FOR LOCATION*/
 
 #location {
-    padding-top: 2rem;
-    padding-bottom: 8rem;
+    scroll-margin-top: 50px;
+    padding-top: 0;
+    padding-bottom: 5rem;
     font-size: 0.95em;
 }
 .location {
@@ -1140,11 +1161,17 @@ label {
     width: 100%;
 }
 .location-maps {
+    margin-bottom: 1rem;
     aspect-ratio: 1.5;
     width: 100%;
 }
 .location-descripe {
     width: 100%;
+}
+
+.location-descripe p{
+    padding: 0 0.5rem 0.2rem 1.2rem;
+    margin: 0;
 }
 
 @media only screen and (min-width: 800px) {
@@ -1172,6 +1199,14 @@ label {
 }
 .introduction-photo-siem-reap {
     width: 100%;
+    display: none;
+}
+#introduction-kp h2{
+    font-size: 1em;
+    padding: 0 0rem 0 1rem;
+    margin: 0;
+}
+#introduction-photo-kampot {
     display: none;
 }
 #introduction h2 {
@@ -1529,6 +1564,27 @@ label {
     padding-top: 62%;
 }
 
+/* Kampot Facility Photo */
+#facility-pool-kp {
+    background-image: url("../kampot/kampot-img/swimming-pool.jpg");
+    background-position: bottom center;
+}
+
+#facility-reception-kp {
+    background-image: url("../siem-reap/siem-reap-img/facility-reception.jpg");
+    background-position: bottom center;
+}
+
+#facility-lounge-kp {
+    background-image: url("../kampot/kampot-img/lounge.jpg");
+    background-position: bottom center;
+}
+
+#facility-bathroom-kp {
+    background-image: url("../kampot/kampot-img/toilet.jpg");
+    background-position: bottom center;
+}
+
 
 /*PHNOM PENH PAGE CONTENTS*/
 #pp-contents-rooms-photo {
@@ -1857,4 +1913,29 @@ a:hover {
 }
 #telegram-svg {
     background-image: url("../symbol/telegram.png");
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+}
+
+.thumbnail-strip {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
 }

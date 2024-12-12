@@ -262,9 +262,15 @@ li.menu__single_3:hover ul.menu__second-level {
 /* Booking form */
 
 #overlay {
-    position: relative;
+    position: absolute;
     margin-top: -10rem;
     z-index: 4;
+}
+#container-form {
+    width: 100svw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container-form {
     z-index: 5 !important;

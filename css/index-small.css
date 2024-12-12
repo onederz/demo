@@ -224,7 +224,7 @@ body.on-scroll {
 
 #top-page-image {
     background-repeat: no-repeat;
-    height: 350px;
+    aspect-ratio: 1;
     position: relative;
     background-position: center ;
     background-size: cover;
@@ -252,19 +252,22 @@ body.on-scroll {
 }
 
 .booking-mobile-btn {
-    font-size: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
     font-weight: bold;
     position: fixed;
     z-index: 4000;
-    padding: 1rem 0 0 0;
     width: 80%;
-    height: 45px;
+    height: 60px;
     border-radius: 1rem;
-    background-color: #3b6e70;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.712);
-    text-align: center;
+    background-color: #115561f3;
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.712);
     left: 50%;
-    bottom: 0.2rem;
+    bottom: 0.5rem;
     transform: translateX(-50%);
 }
 
@@ -296,7 +299,7 @@ body.on-scroll {
 
 #container-form.show {
     display: block;
-    animation: move-top 1s ease;
+    animation: move-top 0.5s ease;
 }
 
 @keyframes move-top {
@@ -313,12 +316,13 @@ body.on-scroll {
         transform: translateY(0);
     }
     to {
-        transform: translateY(500px);
+        transform: translateY(600px);
     }
 }
 
 #container-form.closing {
-    animation: move-bottom 1.2s ease-out;
+    animation: move-bottom 0.5s ease-out;
+    animation-fill-mode: forwards;
 }
  
 .container-form {
@@ -724,7 +728,7 @@ label {
 .who-we-are-top-photo {
     background-size: cover;
     background-repeat: no-repeat;
-    height: 200px;
+    aspect-ratio: 1.4;
     background-position: center;
     position: relative;
     background-image: url("../images/who-we-are-top-large.jpg");
