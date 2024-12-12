@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function () {
             containerForm.classList.remove('show', 'closing');
             overlay.style.display = 'none';
             document.body.classList.remove('no-scroll');
-        }, 100); // Match the duration of the closing animation
+        }, 200); // Match the duration of the closing animation
     }
 
     // Open the menu and apply blur effect
@@ -429,4 +429,3 @@ function toggleReadMore(dotsId, moreTextId, readMoreBtnId, readLessBtnId) {
         readLessBtn.style.display = "inline";
     }
 }
-
