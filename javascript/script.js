@@ -429,3 +429,8 @@ function toggleReadMore(dotsId, moreTextId, readMoreBtnId, readLessBtnId) {
         readLessBtn.style.display = "inline";
     }
 }
+window.addEventListener("pageshow", function (event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    });
