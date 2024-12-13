@@ -1716,4 +1716,5 @@ footer {
     background-color: #a7a7a7;
     padding: 0.5rem;
     font-family: 'Open Sans', Yu Gothic UI, Avenir-Medium;
+    display: none;
 }
