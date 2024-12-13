@@ -217,18 +217,20 @@ body {
 }
 #introduction-photo-siem-reap {
     width: 40%;
+    display: none;
 }
 #introduction-photo-kampot {
     width: 90%;
+    display: none;
 }
 #introduction {
     border: 1px solid white;
-    width: 70%;
+    width: 100%;
     background-color: #ffffff;
 }
 #introduction-kp {
     border: 1px solid white;
-    width: 85%;
+    width: 100%;
     background-color: #ffffff;
 }
 #introduction-kp h2{
@@ -372,6 +374,7 @@ img {
     width: 100%;
 }
 .gallery-image2 {
+    aspect-ratio: 1;
     width: 100%;
     opacity: 0.4;
 }
