@@ -140,7 +140,7 @@ body {
 .top-photo-branch {
     z-index: 1;
     width: 100%;
-    aspect-ratio: 1.6;
+    aspect-ratio: 1.7;
     position: relative;
     background-repeat: no-repeat;
     background-position: center;
@@ -214,15 +214,16 @@ body {
 }
 #introduction-photo-siem-reap {
     width: 40%;
+    display: none;
 }
 #introduction {
     border: 1px solid white;
-    width: 70%;
+    width: 100%;
     background-color: #ffffff;
 }
 #introduction-kp {
     border: 1px solid white;
-    width: 80%;
+    width: 100%;
     background-color: #ffffff;
 }
 #introduction-kp h2{
@@ -249,7 +250,7 @@ body {
 
 #introduction-photo-kampot {
     width: 100%;
-    display: block;
+    display: none;
 }
 
 #introduction-photo-phnom-penh {
@@ -368,7 +369,7 @@ img {
 }
 
 .gallery-item1 {
-    width: 47.5%;
+    width: 30.5%;
     height: auto;
 }
 
@@ -383,12 +384,12 @@ img {
     aspect-ratio: 2;
 }
 .gallery-image1 {
-    aspect-ratio: 1.2;
+    aspect-ratio: 1;
     margin: 0;
     display: block;
 }
 .gallery-image2 {
-    aspect-ratio: 1.259;
+    aspect-ratio: 1.6;
     width: 100%;
     opacity: 0.4;
 }
