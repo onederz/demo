@@ -232,6 +232,14 @@
         </div>
     </div>
         <script type="text/javascript" src="javascript/script.js"></script>
+        <script>
+    window.addEventListener("pageshow", function (event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    });
+</script>
+
     </body>
     
 </html>
