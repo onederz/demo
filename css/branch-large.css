@@ -140,7 +140,7 @@ body {
 .top-photo-branch {
     z-index: 1;
     width: 100%;
-    aspect-ratio: 1.7;
+    aspect-ratio: 2;
     position: relative;
     background-repeat: no-repeat;
     background-position: center;
